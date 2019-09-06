@@ -1,0 +1,95 @@
+img{
+  width: 100%;
+}
+.footer-1 {
+    background-image: url("../images/bg-4.png");
+}
+
+
+.sp {
+    margin: auto;
+    width: 60px;
+    border-bottom: 3px solid #FF0066;
+    height: 5px;
+}
+.sanpham .nav-tabs .nav-link:hover {
+    border: none;
+  }
+ .sanpham  .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom: 3px solid #FF0066;
+  }
+ .sanpham .nav-item a{
+      color: #FF0066;
+      font-size: 20px;
+  }
+
+  .sanpham  .nav-tabs{
+    border: none;
+  }
+
+
+ .thumbnail {
+    width: auto; 
+    overflow: hidden;    
+  }
+  
+ .thumbnail img {
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s; 
+    -moz-transition-duration: 0.5s; 
+    -o-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+  }
+  
+ .thumbnail img:hover {
+    transform: scale(1.2);
+    opacity: 0.6;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2); 
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    cursor: pointer; 
+  }
+
+  .btn-primary {
+      background-color: #FF0066;
+      border: none;
+  }
+  .btn-primary:hover {
+      background-color: #FF3399;
+  }
+  .nav-tabs {
+      padding-left:15%;
+  }
+  .card-title{
+       text-decoration: none;
+       color: #FF0066;
+   }
+
+   .card-body a{
+       text-decoration: none;
+   }
+
+   .phanhoi .card {
+       border: none;
+   }
+
+   .footer-1 .list-group-items {
+       background-color: #FF0066;
+   }
+
+   .footer-1 .form-control-plaintext {
+       border:1px solid #FF0066;
+       border-radius: 10px;
+   }
+  @media only screen and (max-width: 992px){
+    .res-dp-none ul#myTab{
+      padding:0;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    .res-dp-none{
+      display: none;
+    }
+  }

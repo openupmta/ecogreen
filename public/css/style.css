@@ -1,0 +1,372 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+img{
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center; 
+}
+#bg-light{
+  
+}
+.header-1 .btn-success{
+  background-color: #FF6A6A;
+  border: none;
+}
+
+.icon-user {
+  font-size: 20px;
+  color: #FF6A6A;
+}
+.header-2 {
+  background-color: #FF6A6A;
+
+}
+
+.header-2 a {
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+}
+
+.main-menu {
+  list-style: none;
+}
+
+.main-menu li {
+  display: inline-block;
+  position: relative;
+  padding-right: 5px;
+}
+
+.main-menu li a {
+  display: inline-block;
+  color: #ffffff;
+  margin-right: 16px;
+  line-height: 1;
+  padding: 17px 0;
+  position: relative;
+  font-weight: 450;
+}
+.blog-item{
+  display: none;
+  transition: all 0.5s;
+}
+.main-menu li:hover .sub-menu {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 0px;
+}
+
+.main-menu li:hover>a {
+  color: #f7f2f4;
+  text-decoration: none;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.main-menu .sub-menu {
+  position: absolute;
+  list-style: none;
+  width: 295px;
+  left: 0;
+  top: 100%;
+  padding: 10px 0 0 0;
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 50px;
+  background: #fff;
+  z-index: 99;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.main-menu .sub-menu li {
+  display: block;
+}
+
+.main-menu .sub-menu li a {
+  display: block;
+  color: #000;
+  margin-right: 0;
+  padding: 12px 20px;
+}
+
+.main-menu .sub-menu li:hover {
+  background-color: #FF6A6A;
+}
+
+.main-menu .sub-menu li a:hover {
+  color: #fff;
+}
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: url(../images/gel-tri-mun.png);
+  overflow-x: hidden;
+  transition: 0.5s;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+/*Day la Footer*/
+
+.footer-1 {
+    background-image: url("../images/footer1.png");
+}
+
+
+.sp {
+    margin: auto;
+    width: 60px;
+    border-bottom: 3px solid #FF0066;
+    height: 5px;
+}
+.sanpham .nav-tabs .nav-link:hover {
+    border: none;
+  }
+ .sanpham  .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom: 3px solid #FF0066;
+  }
+ .sanpham .nav-item a{
+      color: #FF0066;
+      font-size: 20px;
+  }
+
+  .sanpham  .nav-tabs{
+    border: none;
+  }
+
+
+ .thumbnail {
+    width: auto; 
+    overflow: hidden;    
+  }
+  
+ .thumbnail img {
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s; 
+    -moz-transition-duration: 0.5s; 
+    -o-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+  }
+  
+ .thumbnail img:hover {
+    transform: scale(1.2);
+    opacity: 0.6;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2); 
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    cursor: pointer; 
+  }
+
+  .cnt-left{
+    text-align: right;
+  }
+  .cnt-content{
+    text-align: center;
+  }
+  .cnt-right{
+    text-align: left;
+  }
+
+  .btn-primary {
+      background-color: #FF0066;
+      border: none;
+  }
+  .btn-primary:hover {
+      background-color: #FF3399;
+  }
+  .nav-tabs {
+      padding-left:15%;
+  }
+  .card-title{
+       text-decoration: none;
+       color: #FF0066;
+   }
+
+   .card-body a{
+       text-decoration: none;
+   }
+
+   .phanhoi .card {
+       border: none;
+   }
+
+   .footer-1 .list-group-items {
+       background-color: #FF0066;
+   }
+
+   .footer-1 .form-control-plaintext {
+       border:1px solid #FF0066;
+       border-radius: 10px;
+   }
+.bot{
+  background-image: url(../images/footer-nen.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  }
+  .bot-content{
+    padding-top: 5%;
+  }
+  
+  .bot2{}
+    .title-bot{
+      
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .text-bot{
+      text-align: left;
+      font-size: 16px;
+      line-height: 20px;
+      margin-top: 8%;
+    }
+    
+      .input-footer{
+        width: 80%;
+      }
+      .plane{
+        display: block;
+        padding: 6px 10px 6px 10px;
+        background-color: #FF6A6A;
+        margin-left: -4px;
+      }
+      .icon-footer{}
+        .list-icon-footer{
+          color: #fff;
+          font-size: 23px;
+          margin-right: 5%;
+        }
+      .email{
+        margin-bottom: 15%;
+      }
+      .list-service{
+        list-style: none;}
+        .list-footer{
+        }
+        .list-a{
+          color: #fff;
+        }
+        .list-a:hover{
+          color: #FF6A6A;
+          text-decoration: none;
+        }
+      
+    
+  
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+
+}
+@media (min-width: 320px) and (max-width: 767px){
+  .menu-box{
+    display: block !important;
+  }
+  .header-1{
+    text-align: center;
+  }
+  .cnt-left{
+    text-align: center;
+  }
+  .cnt-right{
+    text-align: center;
+  }
+}
+@media (min-width: 320px) and (max-width: 410px){
+  .menu-box{
+    margin-left: 3%;
+    margin-top: -2%;
+  }
+    .input-group{
+      width: 85% !important;
+    }
+    .dangnhap{
+      display: none;
+    }
+    .header-2{
+      display: none;
+    }
+    .search{
+      display: inline-flex;
+    }
+    .bt-s{
+       height: 36px;
+    }
+}
+@media (min-width: 411px) and (max-width: 767px){
+  .menu-box{
+    margin-left: 3%;
+    margin-top: -2%;
+  }
+    .input-group{
+      width: 85% !important;
+    }
+    .dangnhap{
+      display: none;
+    }
+    .header-2{
+      display: none;
+    }
+    .search{
+      display: inline-flex;
+    }
+    .bt-s{
+       height: 36px;
+    }
+}
+a{
+  text-decoration: none !important;
+}

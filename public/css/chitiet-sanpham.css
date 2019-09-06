@@ -1,0 +1,120 @@
+a{
+	color: #000;
+}
+a:hover{
+	text-decoration: none;
+}
+img{
+	width: 100%;
+}
+.link{
+	display: flex;
+	padding:0.3rem 0;
+	border-bottom: 1px solid #ccc;
+	font-size: 13px;
+}
+.link span{
+	padding:0 0.5rem;
+}
+.link a{
+	color: #000000;
+}
+.link a:hover{
+	text-decoration: none;
+}
+.cong-dung li{
+	width: 100%;
+	font-size: 14px;
+}
+.cong-dung{
+	padding-left:1rem;
+}
+.so-luong-san-pham,.so-luong{
+	display: flex;
+}
+.soluong{
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	padding:0rem 1rem;
+	margin:0 5px;
+	border:1px solid #ccc;
+	border-radius: 5px;
+
+}
+.ml-6{
+	margin-left: 6rem;
+}
+.thong-tin-sp table{
+	border-collapse: collapse;
+}
+.thong-tin-sp table tbody tr td{
+	border: 1px solid #ccc;
+	padding: 5px 30px 5px 5px;
+	font-size: 13px;
+}
+.thong-tin-sp table tbody tr td p{
+	margin:0;
+}
+.thong-tin-sp table tbody tr:nth-child(2n+1){
+	background-color: #f9f9f9;
+}
+.nav-pills{
+	width: 100%;
+	margin-top: 1rem;
+}
+.nav-pills [data-toggle="pill"]{
+	padding:0.5rem;
+	margin-right: 2px;
+	background-color: #E6E7E8;
+	font-size: 18px;
+	font-weight: 600;
+}
+.nav-pills [data-toggle="pill"] a{
+	color: #000;
+	text-align: center;
+}
+input[type="text"]{
+	width:50%;
+	border-radius: 5px;
+	margin-bottom: 1rem;
+}
+textarea{
+	width: 50%;
+    height: 100px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.danh-muc-san-pham{
+	background-color: #2368cf;
+	padding:15px 20px 15px;
+}
+button.btn.dropdown-toggle{
+	width: 100%;
+	padding:0.5rem 0;
+	margin-bottom: 1rem;
+	background-color: #ffffff;
+}
+.show{
+	width: 100%;
+}
+
+
+@media only screen and (max-width: 991px){
+	.so-luong-san-pham{
+		display: block;
+	}
+	.ml-6{
+		margin-left: 0;
+		margin-top: 1rem;
+	}
+	[href="#menu1"],
+	[href="#menu2"],
+	[href="#menu3"]{
+		display: none;
+	}
+	.tab-content{
+		display: block !important;
+	}
+}
