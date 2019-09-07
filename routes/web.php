@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('pages.index');
 })->name('trang-chu');
@@ -57,3 +59,20 @@ Route::get('/chi-tiet-san-pham', function () {
 
 
 
+
+Route::get('login','Auth\LoginController@getLogin')->name('login');
+Route::post('login','Auth\LoginController@postLogin');
+Route::get('logout','Auth\LogoutController@Logout')->name('logout');
+
+Route::group(['prefix' => 'admin'], function ()
+{
+    Route::get('/', function()
+    {
+        return view('admins.index');
+    });
+    Route::prefix('form')->group(function(){
+
+        Route::get('index','FormController@index')->name('form.index');
+        Route::get('create','FormController@create')->name('form.add');
+    });
+});
