@@ -17,6 +17,8 @@ class Promotion extends Migration
         {
             $table->bigIncrements('id');
             $table->text('content');
+            $table->tinyInteger('status')->default(1);
+
             $table->timestamps();
         });
     }
