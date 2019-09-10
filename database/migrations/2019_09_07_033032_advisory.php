@@ -13,6 +13,7 @@ class Advisory extends Migration
      */
     public function up()
     {
+        //Câu hỏi thường gặp
         Schema::create('questions',function (Blueprint $table)
         {
             $table->bigIncrements('id');
@@ -22,8 +23,11 @@ class Advisory extends Migration
             $table->text('summary');
             $table->text('content');
             $table->timestamps();
-            $table->integer('status')->default(1);
+            $table->tinyInteger('status')->default(1);
+
+
         });
+        //Hỏi đáp và tư vấn
         Schema::create('advisory',function (Blueprint $table)
         {
             $table->bigIncrements('id');
@@ -33,6 +37,7 @@ class Advisory extends Migration
                 ->on('users')
                 ->onDelete('cascade');
             $table->text('question');
+            $table->tinyInteger('status')->default(1);
             $table->text('answer')->nullable();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Health extends Migration
+class ShippingfreeCommitmentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,32 +13,21 @@ class Health extends Migration
      */
     public function up()
     {
-        //Thể loại sức khỏe
-        Schema::create('cate_health', function (Blueprint $table) {
+        //Chính sách giao hàng
+        Schema::create('shipping',function (Blueprint $table)
+        {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('slug');
+            $table->text('content');
             $table->tinyInteger('status')->default(1);
-
             $table->timestamps();
         });
-//
-        Schema::create('health', function (Blueprint $table) {
+        //cam kết
+        Schema::create('commitment',function (Blueprint $table)
+        {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('slug');
-            $table->string('image');
-            $table->text('summary');
             $table->text('content');
-            $table->bigInteger('cate_id')->unsigned();
-            $table->foreign('cate_id')
-                ->references('id')
-                ->on('cate_health')
-                ->onDelete('cascade');
             $table->tinyInteger('status')->default(1);
-
             $table->timestamps();
-
         });
     }
 

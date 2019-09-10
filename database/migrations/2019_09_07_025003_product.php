@@ -13,14 +13,18 @@ class Product extends Migration
      */
     public function up()
     {
-        Schema::create('image', function (Blueprint $table)
-        {
-           $table->bigIncrements('id');
-           $table->string('image');
-        });
+//        Thể loại của sản phẩm
+        Schema::create('cate_products', function (Blueprint $table) {
 
-        Schema::create('products',function (Blueprint $table)
-        {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('slug')->unique();
+            //Hiển thị cate product
+            $table->tinyInteger('status')->default(1);
+
+        });
+        //Sản phẩm
+        Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('slug');
@@ -28,28 +32,40 @@ class Product extends Migration
             $table->text('content');
             //Chi tiet duoi san pham
             $table->text('detail');
-            //Cam ket
-            $table->text('commitment')->nullable();
+
+            //Số lượng
             $table->integer('quantity');
             $table->bigInteger('price');
-            $table->string('avartar');
             $table->integer('favorite');
-            $table->bigInteger('image_id')->unsigned();
-            $table->foreign('image_id')
+            $table->bigInteger('cate_product_id')->unsigned();
+            $table->foreign('cate_product_id')
                 ->references('id')
-                ->on('image')
+                ->on('cate_products')
                 ->onDelete('cascade');
+            $table->tinyInteger('status')->default(1);
+
             $table->timestamps();
         });
-
-        Schema::create('ratings',function (Blueprint $table)
-        {
+        Schema::create('image', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('image');
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')
                 ->references('id')
                 ->on('products')
                 ->onDelete('cascade');
+            $table->tinyInteger('status')->default(1);
 
+            $table->timestamps();
+
+        });
+
+        Schema::create('ratings', function (Blueprint $table) {
+            $table->bigInteger('product_id')->unsigned();
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')
@@ -57,6 +73,8 @@ class Product extends Migration
                 ->onDelete('cascade');
 
             $table->text('content');
+            $table->tinyInteger('status')->default(1);
+
             $table->timestamps();
         });
 
