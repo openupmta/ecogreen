@@ -12,31 +12,38 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form action="{{url('login')}}" method="POST" role="form">
+            <form method="POST" role="form">
+                @csrf
                 <legend>Login</legend>
-                @if($errors->has('errorlogin'))
-                    <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        {{$errors->first('errorlogin')}}
-                    </div>
-                @endif
+              
                 <div class="form-group">
                     <label for="">Email</label>
                     <input type="text" class="form-control" id="email" placeholder="Email" name="email" value="{{old('email')}}">
                     @if($errors->has('email'))
-                        <p style="color:red">{{$errors->first('email')}}</p>
+                        <div class="alert alert-danger" role="alert">
+                            <strong>{{$errors->first('email')}}</strong>
+                        </div>
+
+                       
                     @endif
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                     @if($errors->has('password'))
-                        <p style="color:red">{{$errors->first('password')}}</p>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>{{$errors->first('password')}}</strong>
+                    </div>
+                        
                     @endif
                 </div>
 
-
-                {!! csrf_field() !!}
+                @if(session('thongbao'))
+                <div class="alert alert-danger" role="alert">
+                         <strong> {{ session('thongbao') }} </strong>
+                     </div>
+             @endif 
+                {{--  {!! csrf_field() !!}  --}}
                 <button type="submit" class="btn btn-primary">Đăng nhập</button>
             </form>
         </div>

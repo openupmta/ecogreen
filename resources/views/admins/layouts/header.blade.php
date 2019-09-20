@@ -227,7 +227,11 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{asset('')}}admin_example/dist/img/user2-160x160.jpg" class="user-image"
                              alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">
+                            @if (Auth::check())
+                             {{ Auth::user()->name }}
+                            @endif
+                    </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -236,7 +240,10 @@
                                  alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
+                                @if (Auth::check())
+                                     {{ Auth::user()->name }}
+                                 @endif
+                         - Web Developer
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>
@@ -261,7 +268,7 @@
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="{{url('logout')}}" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="admin/logout" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

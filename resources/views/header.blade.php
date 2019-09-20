@@ -27,7 +27,7 @@
 									</ul>
 								</div>
 							</a>
-							<a href="{{route('khuyen-mai')}}">Khuyến Mãi</a>
+							<a href="{{route('khuyen-mai')}}">Khuyến mại</a>
 							<a class="blog" href="javascript:void(0)">Tư Vấn
 								<div class="blog-item text-center">
 									<ul>
@@ -56,7 +56,7 @@
 				<div class="col-md-4 p-2 dangnhap">
 					<div class="mb-3 mt-4 float-left pr-4"><i class="fas fa-user-check icon-user"></i> Đăng nhập</div>
 					<div class="mb-3 mt-4 float-left pr-4"><i class="fas fa-user-edit icon-user"></i> Đăng kí</div>
-					<div class="mb-3 mt-4"><i class="fas fa-cart-plus  icon-user" aria-hidden="true"></i> Đăng kí</div>
+					<div class="mb-3 mt-4"><i class="fas fa-cart-plus  icon-user" aria-hidden="true"></i> Giỏ hàng</div>
 
 					
 				</div>
@@ -86,17 +86,15 @@
 					</ul>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link " href="{{route('khuyen-mai')}}">Khuyến mãi</a>
+					<a class="nav-link " href="{{route('khuyen-mai')}}">Khuyến mại</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{{route('tu-van-suc-khoe')}}">Tư vấn <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px"></i></a>
 					<ul class="sub-menu ">
-						<li><a href="{{route('tu-van-suc-khoe')}}"style="font-size: 18px" >Gen trị mụn</a>
+						<li><a href="{{route('tu-van-suc-khoe')}}"style="font-size: 18px" >HỎI ĐÁP - TƯ VẤN</a>
 						</li>
 
-						<li><a href="{{route('tu-van-suc-khoe')}}"style="font-size: 18px">Sữa rửa mặt</a></li>
-
-						<li><a href="{{route('tu-van-suc-khoe')}}"style="font-size: 18px">Thuốc trị nấm, tàn nhang, sẹo</a></li>
+						<li><a href="{{route('tu-van-suc-khoe')}}"style="font-size: 18px">CÂU HỎI THƯỜNG GẶP</a></li>	
 
 					</ul>
 				</li>
