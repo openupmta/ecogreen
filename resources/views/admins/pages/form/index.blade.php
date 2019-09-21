@@ -1,4 +1,5 @@
 @extends('admins.layouts.master')
+@section('form','active')
 @section('title')
     Danh sách web
 @endsection
