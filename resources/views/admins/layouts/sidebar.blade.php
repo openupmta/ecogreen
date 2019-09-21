@@ -7,7 +7,12 @@
                 <img src="{{asset('')}}admin_example/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>
+                        @if (Auth::check())
+                        {{ Auth::user()->name }}
+                       @endif
+
+                </p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -26,7 +31,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
+            <li class="@yield('form') treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
                     <span>Form</span>
@@ -40,7 +45,40 @@
 
                 </ul>
             </li>
-            <li class="active treeview">
+
+            <li class="@yield('khuyenmai') treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Khuyến mại</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/promotion"><i class="fa fa-circle-o"></i> Khuyến mại</a></li>
+                    <li><a href="admin/expert"><i class="fa fa-circle-o"></i> Chuyên gia </a></li>
+                    <li><a href="admin/catepromotion"><i class="fa fa-circle-o"></i> Đăng kí thành viên </a></li>
+
+                </ul>
+            </li>
+
+
+            <li class="@yield('tuvan') treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i>
+                        <span>Tư vấn sức khỏe</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="admin/question"><i class="fa fa-circle-o"></i>Danh sách câu hỏi</a></li>
+    
+                    </ul>
+                </li>
+
+
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">

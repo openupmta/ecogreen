@@ -17,7 +17,7 @@ Khuyến mãi
 					</li>
 					<li class="list-menu"><i class="fas fa-chevron-right" style="font-size: 12px"></i></li>&nbsp;
 					<li class="list-menu">
-						<a class="title-1" href="">Khuyến Mại</a>
+						<a class="title-1" href="khuyen-mai">Khuyến Mại</a>
 					</li>
 				</ul>
 				<div class="space"></div>
@@ -63,22 +63,41 @@ Khuyến mãi
 						<a class="hoi-chuyengia" href="">hỏi chuyên gia</a>
 						<div class="dk-tv">
 							<div class="full-dk">
+								<form method="POST">
+									@csrf
 								<h2 class="title-dk">đăng ký thành viên</h2>
 								<p class="text-dk">Để nhận được ưu đãi đặc biệtvà bản tin sức khỏe hữu ích</p>
-								<input type="text" placeholder="Nhập địa chỉ Emai"><br>
-								<a class="bt-dky" href="">đăng ký</a>
+								<input name="email" type="text" placeholder="Nhập địa chỉ Emai"><br>
+										@if(session('thongbao'))
+										<script>
+											alert('{{session('thongbao')}}')
+										</script>
+										@endif
+										@if($errors->has('email'))
+								
+										<script>
+												alert('{{ $errors->first('email') }}')
+											</script>
+										@endif
+
+								<button type="submit"  class="bt-dky" href="">đăng ký</button>
+							</form>
 							</div>
 						</div>
 						
 					</div>
 					<div class="col-md-9 km-right">
-						<img src="images/banner-1.png" alt="">
-						<h2 class="title-chao">CHƯƠNG TRÌNH KHÁCH HÀNG THÂN THIẾT</h2>
-						<p class="text-chao">Dành cho những khách hàng mua và sử dụng sản phẩm của Vedevi. Hãy tích lũy điểm bằng mã thẻ cào trên mỗi sản phẩm để nhận các quyền lợi hấp dẫn.</p>
-						<p class="xem-ct">Xem chi tiết chương trình tại <a class="link-ct" href="">http://bit.ly/2gqZ9r4</a></p>
+						@foreach ($promotion as $item)
+							
+						
+						<img src="images/{{ $item->image }}" alt="">
+						<h2 class="title-chao">{{ $item->title }}</h2>
+						<p class="text-chao">{{ $item->content }}</p>
+						<p class="xem-ct">Xem chi tiết chương trình tại <a class="link-ct" href="{{ $item->link }}">{{ $item->link }}</a></p>
 
 						<div class="space-1"></div>
-						<h3 class="hotline-ct">Hotline: 1800 55 6889</h3>
+						<h3 class="hotline-ct">Hotline: {{ $item->hotline }}</h3>
+						@endforeach
 					</div>
 					
 				</div>

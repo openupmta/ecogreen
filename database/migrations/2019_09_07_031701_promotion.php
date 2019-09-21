@@ -16,11 +16,33 @@ class Promotion extends Migration
         Schema::create('promotion',function (Blueprint $table)
         {
             $table->bigIncrements('id');
+            $table->string('image');
+            $table->text('title');
             $table->text('content');
+            $table->string('link');
+            $table->string('hotline');
             $table->tinyInteger('status')->default(1);
-
             $table->timestamps();
         });
+
+        
+        Schema::create('expert',function (Blueprint $table)
+        {
+            $table->bigIncrements('id');
+            $table->string('image');
+            $table->timestamps();
+        });
+
+
+        Schema::create('catepromotion',function (Blueprint $table)
+        {
+            $table->bigIncrements('id');
+            $table->string('email');
+            $table->tinyInteger('status')->default(1);
+            $table->timestamps();
+        });
+
+
     }
 
     /**
