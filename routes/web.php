@@ -11,19 +11,14 @@
 |
 */
 
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('pages.index');
 })->name('trang-chu');
-
-
-
 Route::get('/gioi-thieu', function () {
     return view('pages.gioithieu');
 })->name('gioi-thieu');
-
-
 Route::get('/tu-van-suc-khoe.html','client\AdvisoryController@GetAdvisory')->name('tu-van-suc-khoe');
 Route::post('/tu-van-suc-khoe.html','client\AdvisoryController@PostAdvisory');
 
@@ -33,14 +28,16 @@ Route::get('/san-pham', function () {
     return view('pages.sanpham');
 })->name('san-pham');
 
-Route::get('/khuyen-mai.html','client\PromotionController@GetPromotion')->name('khuyen-mai');
-Route::post('/khuyen-mai.html','client\PromotionController@PostPromotion')->name('khuyen-mai');
+Route::get('/khuyen-mai','client\PromotionController@GetPromotion')->name('khuyen-mai');
+Route::post('/khuyen-mai','client\PromotionController@PostPromotion')->name('khuyen-mai');
 
 Route::get('/tu-van', function () {
     return view('pages.tuvan-suckhoe');
 })->name('tu-van');
 
-
+// Route::get('/khuyen-mai', function () {
+//     return view('pages.khuyen-mai');
+// });
 Route::get('/chu-de-suc-khoe', function () {
     return view('pages.chude-suckhoe');
 })->name('chu-de-suc-khoe');
@@ -56,8 +53,12 @@ Route::get('/dang-ky', function () {
 Route::get('/chi-tiet-san-pham', function () {
     return view('pages.chitiet-sanpham');
 })->name('chi-tiet-san-pham');
-
-
+Route::get('/chi-tiet-san-pham-1', function () {
+    return view('pages.chitiet-sanpham-1');
+});
+Route::get('/chi-tiet-san-pham-2', function () {
+    return view('pages.chitiet-sanpham-2');
+});
 
 
 Route::get('login','admins\LoginController@GetLogin')->middleware('CheckLogout');
