@@ -22,8 +22,9 @@ class Advisory extends Migration
             $table->string('image');
             $table->text('summary');
             $table->text('content');
-            $table->timestamps();
             $table->tinyInteger('status')->default(1);
+            $table->timestamps();
+           
 
 
         });
@@ -31,14 +32,25 @@ class Advisory extends Migration
         Schema::create('advisory',function (Blueprint $table)
         {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->string('name');
+            $table->string('email');
             $table->text('question');
             $table->tinyInteger('status')->default(1);
             $table->text('answer')->nullable();
+            $table->timestamps();
+        });
+
+
+        Schema::create('answer',function (Blueprint $table)
+        {
+            $table->bigIncrements('id');
+            $table->text('answer');
+            $table->bigInteger('advisory_id')->unsigned();
+            $table->foreign('advisory_id')
+                    ->references('id')
+                    ->on('advisory')
+                    ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

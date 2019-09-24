@@ -35,4 +35,21 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/style.js"></script>
     @yield('js')
+    <script>
+            function myFunctionReadMore() {
+                var dots = document.getElementById("dots");
+                var moreText = document.getElementById("more");
+                var btnText = document.getElementById("myBtn");
+            
+                if (dots.style.display === "none") {
+                    dots.style.display = "inline";
+                    btnText.innerHTML = "Đọc tiếp"; 
+                    moreText.style.display = "none";
+                } else {
+                    dots.style.display = "none";
+                    btnText.innerHTML = "Rút gọn"; 
+                    moreText.style.display = "inline";
+                }
+            }
+        </script>
 </html>

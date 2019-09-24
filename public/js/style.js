@@ -48,3 +48,4 @@ var acc = document.getElementsByClassName("blog");
 			}
 		});
 	}
+
