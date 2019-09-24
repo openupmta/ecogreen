@@ -92,15 +92,7 @@ Route::get('delete/{id}',[
     'as'=>'deleteintroduce',
     'uses'=>'IntroduceController@delete'
 ]);
-Route::get('getsearch',[
-    'as'=>'getsearch',
-    'uses'=>'IntroduceController@get_search'
-]);
-Route::post('search',[
-    'as'=>'search',
-    'uses'=>'IntroduceController@search'
-]);
 Route::get('gioithieu',[
-     'as'=>'gioithieu',
-     'uses'=>'IntroduceController@showgioithieu'
+   'as'=>'gioithieu',
+   'uses'=>'IntroduceController@gioithieu'
 ]);
