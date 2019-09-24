@@ -2,9 +2,6 @@
 @section('title')
 Khuyến mãi
 @endsection
-
-
-
 @section('css')
 <link rel="stylesheet" href="{{asset('css/khuyenmai.css')}}">
 @endsection
