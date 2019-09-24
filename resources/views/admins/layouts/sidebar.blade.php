@@ -73,6 +73,8 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="admin/question"><i class="fa fa-circle-o"></i>Danh sách câu hỏi</a></li>
+                        <li><a href="admin/question/frequent"><i class="fa fa-circle-o"></i>Danh sách chủ đề câu hỏi</a></li>
+                        <li><a href="admin/question/frequents"><i class="fa fa-circle-o"></i>Danh sách câu hỏi thường gặp</a></li>
     
                     </ul>
                 </li>

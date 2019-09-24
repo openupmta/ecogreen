@@ -1,7 +1,7 @@
 @extends('admins.layouts.master')
 @section('tuvan','active')
 @section('title')
-Danh sách câu hỏi
+Danh sách  câu hỏi thường gặp
 @endsection
 
 @section('content')
@@ -15,28 +15,28 @@ Danh sách câu hỏi
             }
 
         </style>
-        
+
 
         <section class="content-header">
             <h1>
-                    Danh sách câu hỏi đã trả lời
+                Danh sách câu hỏi thường gặp
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Danh sách câu hỏi đã trả lời</li>
+                <li class="active">Danh sách câu hỏi thường gặp</li>
             </ol>
         </section>
         <section class="content">
-                @if(session('thongbao'))
-                <div class="alert alert-success">
-                    {{session('thongbao')}}
-                </div>
-                @endif
+            @if(session('thongbao'))
+            <div class="alert alert-success">
+                {{session('thongbao')}}
+            </div>
+            @endif
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <a href="admin/question" class="btn btn-success">Danh sách câu hỏi chưa trả lời</a>
+                            <a href="admin/question/frequents/add" class="btn btn-success">Thêm câu hỏi</a>
                         </div>
                         <div class="box-header">
 
@@ -46,24 +46,29 @@ Danh sách câu hỏi
                             <table id="example1" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-1">Họ tên</th>
-                                        <th class="col-md-3">Câu hỏi</th>
-                                        <th class="col-md-7">Câu trả lời</th>
-                                        <th class="col-md-1">Hành động</th>
+                                        <th>Chủ đề câu hỏi</th>
+                                        <th>Câu hỏi thường gặp</th>
+                                       
+                                        <th class="col-md-2">Hành động</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($advisory as $item)
+                                    @foreach ($questions as $item)
                                     <tr>
-                                    <td>{{$item->name}}</td>
-                                    <td>{{$item->question}}</td>
-                                    <td>{{$item->cateanswers->answer}}</td>
-                                    
-                                    <td>
-                                        <a class="btn btn-danger" href="{{ url('admin/question/edit/'.$item->id) }}">Sửa</a>
+                                        <td>{{ $item->question->title }}</td>
+                                        <td>{{ $item->title }}</td>
                                         
-                                    </td>
+
+                                        <td>
+                                            <a class="btn btn-danger"
+                                                href="admin/question/frequents/delete/{{ $item->id }}"
+                                                onclick="return confirm('Hành động sẽ xóa câu hỏi này! bạn có muốn tiếp tục?')">Xóa</a>
+                                            <a class="btn btn-default" id="show"
+                                                href="admin/question/frequents/edit/{{ $item->id }}"
+                                                onclick="edit()"><i
+                                                    class="fas fa-pencil-ruler"></i>Sửa</a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

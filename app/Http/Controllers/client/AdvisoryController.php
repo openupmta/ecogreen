@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\client;
-use App\models\advisory;
+use App\models\{advisory,answer,catequestion};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,8 +9,9 @@ class AdvisoryController extends Controller
 {
     function GetAdvisory()
     {
-        
-        return view('pages.tuvan-suckhoe');
+        $data['advisory']=advisory::orderby('id','DESC')->paginate(10);
+        $data['answer']=answer::all();
+        return view('pages.tuvan-suckhoe',$data);
     }
 
     function PostAdvisory(request $request)
@@ -34,9 +35,15 @@ class AdvisoryController extends Controller
         $advisory->email = $request->email;
         $advisory->question = $request->question;
         $advisory->save();
-        return redirect()->back()->with('thongbao','Gửi câu hỏi thành công !');
-
-
+        return redirect()->back()->with('thongbao','Gửi câu hỏi thành công !')->withInput();
 
     }
+    function GetQuestion()
+    {
+        $data['catequestion']=catequestion::all();
+        return view('pages.cauhoi-thuonggap',$data);
+    }
+
+
+
 }

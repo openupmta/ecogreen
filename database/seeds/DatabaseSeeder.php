@@ -14,11 +14,13 @@ class DatabaseSeeder extends Seeder
         $location =array('Admin','Editor','User');
         for ($i = 0; $i <= 2; $i++ )
         {
+          
             DB::table('roles')->insert([
                 'id' => $i+1,
                 'name' => $location[$i],
             ]);
         }
+       
         DB::table('admins')->insert([
             'name'=>'TienMTA',
             'email'=>'admin@gmail.com',
@@ -26,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'level'=>1,
 
         ]);
-
+      
         DB::table('admins')->insert([
             'name'=>'users',
             'email'=>'user@gmail.com',
@@ -81,9 +83,9 @@ class DatabaseSeeder extends Seeder
         
         DB::table('advisory')->delete();
         DB::table('advisory')->insert([
-            ['id'=>1,'name'=>'Nguyễn Hữu TIến','email'=>'tiennguyenhuu@gmail.com','question'=>'Chào chuyên gia, em năm nay 25 tuổi, làm công việc thiết kế đồ họa. Công việc của em là thường xuyên tiếp xúc với màn hình vi tính (khoảng 10h/ ngày), lại phải ngồi trong môi trường máy lạnh nên da bị khô. Em nghe nói, ngồi máy lạnh và nhìn màn hình vi tính nhiều sẽ làm cho da xấu đi, nhanh bị lão hóa. Cho em hỏi, ở độ tuổi của em có nên dùng kem chống lão hóa da không? Em cảm ơn','status'=>1],
-            ['id'=>2,'name'=>'Nguyễn Hữu Toàn','email'=>'toannguyenhuu@gmail.com','question'=>'Chào chuyên gia, Tôi năm nay 28 tuổi, 2 tháng trước tôi thường thức khuya để làm việc, cũng từ đó tôi có thói quen ăn đêm. Hiện tại tôi đã bị tăng cần và mặc dù đã tranh thủ đi ngủ sớm nhưng hầu như đêm nào tôi cũng trằn trọc đến 2, 3 giờ sáng mới ngủ được. Tôi xin hỏi có cách nào để tôi có thể ngủ sớm trở lại và không bị mất ngủ nữa được không ạ?','status'=>1],
-            ['id'=>3,'name'=>'Nguyễn Hữu Hoàng','email'=>'hoangnguyenhuu@gmail.com','question'=>' Chào chuyên gia, tôi và chồng bị viễn thị, con tôi bị cận thị 6 độ. Tôi thấy trên thị trường hiện nay quảng cáo nhiều loại thuốc bổ mắt có tác dụng giúp sáng mắt, hỗ trợ cải thiện thị lực nhưng không biết là có thể giúp viễn thị và cận thị giảm độ và nhìn rõ hơn không? Xin chuyên gia tư vấn cách chọn thuốc. (Thanh Trúc - Bình Thạnh) ','status'=>1],
+            ['id'=>1,'name'=>'Nguyễn Hữu TIến','email'=>'tiennguyenhuu@gmail.com','question'=>'Chào chuyên gia, em năm nay 25 tuổi, làm công việc thiết kế đồ họa. Công việc của em là thường xuyên tiếp xúc với màn hình vi tính (khoảng 10h/ ngày), lại phải ngồi trong môi trường máy lạnh nên da bị khô. Em nghe nói, ngồi máy lạnh và nhìn màn hình vi tính nhiều sẽ làm cho da xấu đi, nhanh bị lão hóa. Cho em hỏi, ở độ tuổi của em có nên dùng kem chống lão hóa da không? Em cảm ơn','status'=>2],
+            ['id'=>2,'name'=>'Nguyễn Hữu Toàn','email'=>'toannguyenhuu@gmail.com','question'=>'Chào chuyên gia, Tôi năm nay 28 tuổi, 2 tháng trước tôi thường thức khuya để làm việc, cũng từ đó tôi có thói quen ăn đêm. Hiện tại tôi đã bị tăng cần và mặc dù đã tranh thủ đi ngủ sớm nhưng hầu như đêm nào tôi cũng trằn trọc đến 2, 3 giờ sáng mới ngủ được. Tôi xin hỏi có cách nào để tôi có thể ngủ sớm trở lại và không bị mất ngủ nữa được không ạ?','status'=>2],
+            ['id'=>3,'name'=>'Nguyễn Hữu Hoàng','email'=>'hoangnguyenhuu@gmail.com','question'=>' Chào chuyên gia, tôi và chồng bị viễn thị, con tôi bị cận thị 6 độ. Tôi thấy trên thị trường hiện nay quảng cáo nhiều loại thuốc bổ mắt có tác dụng giúp sáng mắt, hỗ trợ cải thiện thị lực nhưng không biết là có thể giúp viễn thị và cận thị giảm độ và nhìn rõ hơn không? Xin chuyên gia tư vấn cách chọn thuốc. (Thanh Trúc - Bình Thạnh) ','status'=>2],
           
         ]);
 
@@ -124,6 +126,118 @@ class DatabaseSeeder extends Seeder
             Về các lựa chọn thuốc bổ mắt, chị nên chọn sản phẩm có khả năng chăm sóc và bảo vệ thủy tinh thể và võng mạc, hai bộ phận quan trọng nhất đảm bảo chức năng nhìn của mắt, làm chậm tiến triển của cận, viễn thị đồng thời cải thiện các triệu chứng và phòng ngừa bệnh mắt khác.','advisory_id'=>3],
           
         ]);
+
+        DB::table('cate_health')->delete();
+        DB::table('cate_health')->insert([
+            ['id'=>1,'name'=>'SỨC KHOẺ SINH LÝ NỮ','slug'=>'SUC-KHOE-SINH-LY-NU'],
+            ['id'=>2,'name'=>'SỨC KHOẺ SINH LÝ NAM','slug'=>'SUC-KHOE-SINH-LY-NAM'],
+            ['id'=>3,'name'=>'LÃO HOÁ DA','slug'=>'LAO-HOA-DA'],
+             
+        ]); 
+
+        DB::table('health')->delete();
+        DB::table('health')->insert([
+            ['id'=>1,'title'=>'Làm thế nào để chọn đúng sản phẩm tăng hormone nữ an toàn?',
+            'slug'=>'lam-the-nao-de-chon-dung-san-pham-tang-hormone-nu-an-toan',
+            'image'=>'melan-cholia-277731-290x185.jpg',
+            'summary'=>'Sức khỏe, đời sống chăn gối, nhan sắc rủ nhau xuống dốc khi bạn bắt đầu đặt chân sang cột mốc tuổi 35 - độ tuổi mà các hormone trong cơ thể người phụ nữ  thiếu hụt và xáo trộn. Cách cải thiện tình trạng này chính là  làm thế nào để tăng nồng độ hormone nữ, nhưng không phải ai cũng tìm được phương pháp thực sự hiệu quả và an toàn.',
+            'cate_id'=>1,
+            ],
+
+            ['id'=>2,'title'=>'P. Leucotomos - Chống nắng từ bên trong và cải thiện da lão hoá cực kỳ hiệu quả',
+            'slug'=>'p-Leucotomos-chong-nang-tu-ben-trong-va-cai-thien-da-lao-hoa-cuc-ky-hieu-qua',
+            'image'=>'tinh-chat-Polypodium-Leucotomos2-290x185.jpg',
+            'summary'=>'Nhiều thế kỷ qua, các thổ dân Châu Mỹ đã sử Polypodium Leucotomos (P. Leucotomos) để cải thiện các vấn đề về da. Đến năm 1970 các nhà khoa học Mỹ đã chứng minh thảo dược P. Leucotomos giúp bảo vệ cấu trúc nền của da trước tác hại của tia cực tím. Đồng thời, P. Leucotomos còn có đặc tính chống oxy hóa, kháng viêm rất tốt, giúp ngăn ngừa quá trình lão hóa da, hạn chế tình trạng da khô, nhăn, sạm giúp da khỏe mạnh, mềm mịn, căng sáng từ bên trong.',
+            'cate_id'=>1,
+            ],
+         
+            ['id'=>3,'title'=>'Hệ trục não bộ - tuyến yên - buồng trứng',
+            'slug'=>'he-truc-nao-bo-buong-trung',
+            'image'=>'htnbtybt-290x185.jpg',
+            'summary'=>'Hệ trục "vàng" Não bộ - Tuyến yên - Buồng trứng là hệ trục thần kinh – nội tiết. Hệ trục đóng vai trò quyết định cho sức khỏe, sắc đẹp, ham muốn tình dục lẫn khả năng sinh sản của nữ giới, hệ trục vàng vừa chỉ huy, sản xuất các nội tiết tố (GnRH, FSH, LH, progesterone, estrogen, testosterone...) trong đó, quan trọng nhất là bộ 3 nội tiết tố estrogen, progesterone và testosterone.',
+            'cate_id'=>1,
+            ],
+             
+
+            ['id'=>4,'title'=>'Phát hiện mới giúp nâng cao phong độ nam giới',
+            'slug'=>'phat-hien-moi-giup-nang-cao-phong-do-nam-gioi',
+            'image'=>'nang-cao-phong-do-nam-gioi1-290x185.jpg',
+            'summary'=>'Tác động trực tiếp đến Luteinizing nhằm thúc đẩy quá trình sinh tổng hợp Testosterone nội sinh một cách an toàn, bền vững được xem là giải pháp nâng cao sức khỏe toàn thân, đời sống sinh lý phái mạnh hiệu quả hiện nay.',
+            'cate_id'=>2,
+            ],
+            ['id'=>5,'title'=>'Tăng cường Luteinizing tự nhiên - Tăng cường nội lực nam giới',
+            'slug'=>'tang-cuong-luteinzing-tu-nhien-tang-cuong-noi-luc-nam-gioi',
+            'image'=>'2411-LH2-290x185.jpg',
+            'summary'=>'Sau nhiều công trình nghiên cứu, các nhà khoa học Mỹ đã tìm ra phương thức tăng cường Testosterone nội sinh trong cơ thể nam giới nhanh hơn, bền vững hơn bằng cách phối hợp các thảo dược đặc hiệu có công dụng giúp sản sinh Luteinizing một cách tự nhiên.',
+            'cate_id'=>2,
+            ],
+            ['id'=>6,'title'=>'11 phát hiện thú vị về Testosterone',
+            'slug'=>'11-phat-hien-thu-vi-ve-testosterone',
+            'image'=>'tang-testosterone-cho-nam-gioi-nhu-the-nao-moi-dung-cach11440066191-290x185.jpg',
+            'summary'=>'Vì sao mùa cưới thường vào mùa đông, yêu đơn phương không gây hưng phấn, nguyên nhân gây "lệch pha" nam nữ, điều gì giúp nam giới tăng “bản lĩnh” … là những phát hiện thú vị liên quan đến Testosterone mà bạn có thể chưa biết.',
+            'cate_id'=>2,
+            ],
+
+
+            ['id'=>7,'title'=>'Bí quyết giúp làm đẹp da tự nhiên, chăm sóc da toàn diện',
+            'slug'=>'bi-quyet-giup-lam-dep-da-tu-nhien-cham-soc-da-toan-dien',
+            'image'=>'angela1-290x185.jpg',
+            'summary'=>'Làn da đẹp cần có đủ độ ẩm, tính đàn hồi, mặt da láng mịn, căng sáng thể hiện sức khỏe, vẻ đẹp và sự tươi trẻ của người phụ nữ. Vậy bí quyết nào để có được làn da đẹp như thế trong khi tuổi tác, ánh nắng mặt trời và các yếu tố gây hại khác không ngừng tấn công làn da chúng ta mỗi ngày?',
+            'cate_id'=>3,
+            ],
+            ['id'=>8,'title'=>'Hiểu về lão hóa da và phương pháp chống lão hóa da hiệu quả',
+            'slug'=>'hieu-ve-lao-hoa-da-va-phuong-phap-chong-lao-hoa-da',
+            'image'=>'clhd3-290x185.jpg',
+            'summary'=>'Hiểu về lão hóa da và phương pháp chống lão hóa da hiệu quả',
+            'cate_id'=>3,
+            ],
+            ['id'=>9,'title'=>'Cấu trúc nền của da',
+            'slug'=>'cau-truc-nen-cua-da',
+            'image'=>'cautrucnencuada-290x185.jpg',
+            'summary'=>'Cấu trúc nền suy sụp làm da nhăn, khô, sạm, lão hoá nhanh.',
+            'cate_id'=>3,
+            ],
+        ]);
+
+
+
+
+        DB::table('catequestions')->delete();
+        DB::table('catequestions')->insert([
+            ['id'=>1,'title'=>'Hỏi về Angela Gold','slug'=>'hoi-ve-angela-gold','image'=>'chong-nang-tu-thien-nhien-03_(Copy).jpg'],
+            ['id'=>2,'title'=>'Hỏi về Alipas Platinum','slug'=>'hoi-ve-alipas-platinum','image'=>'sam-alipas-platinum-4.jpg'],
+            ['id'=>3,'title'=>'Hỏi về Lic','slug'=>'hoi-ve-lic','image'=>'benh nguy hiem 5.jpg'],
+            ['id'=>4,'title'=>'Hỏi về Jex Max','slug'=>'hoi-ve-jex-max','image'=>'2744-voi-hoa-cot-song_(2)-290x185.jpg'],
+            ['id'=>5,'title'=>'Hỏi về Hewel','slug'=>'hoi-ve-hewel','image'=>'sl1-290x185.jpg'],
+    
+        ]); 
+
+        DB::table('questions')->delete();
+        DB::table('questions')->insert([
+            ['id'=>1,'title'=>'Đang dùng collagen thì có thể dùng thêm Sâm Angela Gold không?','slug'=>'dang-dung-collagen-thi-co-the-dung-them-sam-angela-gold-duoc-khong','cate_id'=>1],
+            ['id'=>2,'title'=>'Uống Sâm Angela Gold có làm tăng estrogen, tăng nguy cơ ung thư không?','slug'=>'uong-sam-angela-gold-co-lam-tang-estogen-tang-nguy-co-ung-thu-khong','cate_id'=>1],
+            ['id'=>3,'title'=>'Vợ bị giảm ham muốn, đau khi quan hệ. Sâm Angela Gold cải thiện vấn đề này cho phụ nữ ra sao?','slug'=>'vo-bi-giam-ham-muon-dau-khi-quan-he-sam-angela-gold-cai-thien-van-de-nay-cho-phu-nu-ra-sao','cate_id'=>1],
+            
+            ['id'=>4,'title'=>'Cơ thể bình thường, có thể dùng Sâm Alipas Platinum để duy trì sức khỏe và sinh lý không?','slug'=>'co-the-binh-thuong-co-the-dung-sam-alipas-platinum-de-duy-tri-suc-khoe-sinh-ly-khong','cate_id'=>2],
+            ['id'=>5,'title'=>'Nam giới ngoài tuổi 50, dùng Sâm Alipas Platinum có an toàn với người có tuổi?','slug'=>'nam-gioi-ngoai-tuoi-50-dung-sam-alipas-platinum-co-an-toan-voi-nguoi-co-tuoi','cate_id'=>2],
+            ['id'=>6,'title'=>'Nam giới bị huyết áp cao, tiểu đường, bệnh tim mạch… dùng Sâm Alipas Platinum được không?','slug'=>'nam-gioi-bi-huyet-ap-cao-tieu-duong-benh-tim-mach-dung-sam-alipas-duoc-khong','cate_id'=>2],
+
+            ['id'=>7,'title'=>'Không cần giảm cân, chỉ muốn giữ cân thì uống LIC có được không?','slug'=>'khong-can-giam-can-chi-muon-giu-can-thi-uong-lic-duoc-khong','cate_id'=>3],
+            ['id'=>8,'title'=>'Bị cao huyết áp và tiểu đường có dùng được LIC không?','slug'=>'bi-cao-huyet-ap-va-tieu-duong-co-dung-duoc-lic-khong','cate_id'=>3],
+            ['id'=>9,'title'=>'LIC có ảnh hưởng gì đến việc sinh con không? Ngưng dùng trong bao lâu thì có thể có con?','slug'=>'lic-co-anh-huong-gi-den-viec-sinh-con-khong-ngung-dung-trong-bao-lau-thi-co-the-co-con','cate_id'=>3],
+
+            ['id'=>10,'title'=>'Jex Max có hỗ trợ cải thiện bệnh xương khớp cho người bị đau nhức khớp kinh niên không?','slug'=>'jex-max-co-ho-tro-cai-thien-benh-xuong-khop-cho-nguoi-bi-dau-nhuc-khop-kinh-nien-khong','cate_id'=>4],
+            ['id'=>11,'title'=>'Dùng Jex Max thường xuyên có an toàn với người trung niên, cao tuổi?','slug'=>'dung-lex-max-thuong-xuyen-co-an-toan-voi-nguoi-trung-nien-cao-tuoi','cate_id'=>4],
+            ['id'=>12,'title'=>'Jex Max có dùng được cho người đau bao tử, mắc bệnh huyết áp, gan, thận...?','slug'=>'jex-max-co-dung-duoc-cho-nguoi-dau-bao-tu-mac-benh-huyet-ap-gan-than','cate_id'=>4],
+
+
+            ['id'=>13,'title'=>'Bị viêm gan B mãn tính, nên uống Hewel liều lượng bao nhiêu để phòng xơ gan hiệu quả?','slug'=>'bi-viem-gan-b-man-tinh-nen-uong-hewel-lieu-luong-bao-nhieu-de-phong-xo-gan-hieu-qua','cate_id'=>5],
+            ['id'=>14,'title'=>'Sử dụng Hewel có giúp cải thiện gan nhiễm mỡ hiệu quả không?','slug'=>'su-dung-hewel-co-giup-cai-thien-gan-nhiem-mo-hieu-qua-khong','cate_id'=>5],
+            ['id'=>15,'title'=>'Có thể dùng Hewel để giải độc và ngăn ngừa ung thư từ thực phẩm bẩn được không?','slug'=>'co-the-dung-hewel-de-giai-doc-va-ngan-ngua-ung-thu-tu-thuc-pham-duoc-khong','cate_id'=>5],
+        ]); 
+
+
+
 
 
 

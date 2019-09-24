@@ -24,68 +24,9 @@ Khuyến mãi
 			</div>
 			<main>
 				<div class="row">
-					<div class="col-md-3 ">
-						<div class="km-left">
-							<div class="bt-list-1">
-								<button class="accordion">TÌM THEO THƯƠNG HIỆU</button>
-								<div class="panel">
-									<ul class="tool-thuoc">
-										<li><a class="list-thuoc" href="">abcac</a></li>
-										<li><a class="list-thuoc" href="">abcac</a></li>
-										<li><a class="list-thuoc" href="">abcac</a></li>
-									</ul>
-									
-									
-								</div>
+					
+						@include('sidebar')
 
-								<button class="accordion">TÌM THEO BỆNH</button>
-								<div class="panel">
-									<ul class="tool-thuoc">
-										<li class="list-thuoc"><a class="list-thuoc" href="">abcac</a></li>
-										<li class="list-thuoc"><a class="list-thuoc" href="">abcac</a></li>
-										<li class="list-thuoc"><a class="list-thuoc" href="">abcac</a></li>
-									</ul>
-								</div>
-
-								<button class="accordion">TÌM THEO GIÁ</button>
-								<div class="panel">
-									<ul class="tool-thuoc">
-										<li class="list-thuoc"><a class="list-thuoc" href="">abcac</a></li>
-										<li class="list-thuoc"><a class="list-thuoc" href="">abcac</a></li>
-										<li class="list-thuoc"><a class="list-thuoc" href="">abcac</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="img-cg">
-							<img class="chuyen-gia" src="images/lady-doctor.png" alt="">
-						</div>
-						<a class="hoi-chuyengia" href="">hỏi chuyên gia</a>
-						<div class="dk-tv">
-							<div class="full-dk">
-								<form method="POST">
-									@csrf
-								<h2 class="title-dk">đăng ký thành viên</h2>
-								<p class="text-dk">Để nhận được ưu đãi đặc biệtvà bản tin sức khỏe hữu ích</p>
-								<input name="email" type="text" placeholder="Nhập địa chỉ Emai"><br>
-										@if(session('thongbao'))
-										<script>
-											alert('{{session('thongbao')}}')
-										</script>
-										@endif
-										@if($errors->has('email'))
-								
-										<script>
-												alert('{{ $errors->first('email') }}')
-											</script>
-										@endif
-
-								<button type="submit"  class="bt-dky" href="">đăng ký</button>
-							</form>
-							</div>
-						</div>
-						
-					</div>
 					<div class="col-md-9 km-right">
 						@foreach ($promotion as $item)
 							

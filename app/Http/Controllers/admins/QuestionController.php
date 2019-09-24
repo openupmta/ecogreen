@@ -48,4 +48,22 @@ class QuestionController extends Controller
        return redirect('admin/question/list')->with('thongbao','Trả lời thành công !');
     }
 
+    function GetEdit($id)
+    {
+        $data['advisory']=advisory::find($id);
+        return view('admins.pages.advisory.edit',$data);
+    }
+
+
+    function PostEdit(request $request ,$id)
+    {
+       // dd($request->all());
+        $ans=answer::find($id);
+        $ans->answer = $request->name;
+        $ans->advisory_id=$request->id;
+        $ans->save();
+        return redirect('admin/question/list')->with('thongbao','Sửa thành công !');
+    }
+
+
 }

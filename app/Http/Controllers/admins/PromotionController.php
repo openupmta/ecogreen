@@ -29,7 +29,7 @@ class PromotionController extends Controller
     {
         $this->validate($request,
         [
-            'image' => 'required',
+            'image' => 'required|image',
             'title' => 'required',
             'content' => 'required',
             'link' => 'required',
@@ -39,6 +39,7 @@ class PromotionController extends Controller
         ],
         [
             'image.required' => 'Ảnh là trường bắt buộc !',
+            'image.image' => 'Ảnh sai định dạng !',
             'title.required' => 'Tiêu đề là trường bắt buộc !',
             'link.required' => 'Link là trường bắt buộc !',
             

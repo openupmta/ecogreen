@@ -1,7 +1,7 @@
 @extends('admins.layouts.master')
 @section('tuvan','active')
 @section('title')
-Danh sách câu hỏi
+Sửa câu trả lời
 @endsection
 
 @section('content')
@@ -15,72 +15,53 @@ Danh sách câu hỏi
             }
 
         </style>
-        
+
 
         <section class="content-header">
-            <h1>
-                    Danh sách câu hỏi đã trả lời
-            </h1>
+            {{-- <h1>
+                    Câu hỏi
+            </h1> --}}
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Danh sách câu hỏi đã trả lời</li>
+                <li class="active">Sửa câu trả lời</li>
             </ol>
         </section>
         <section class="content">
-                @if(session('thongbao'))
-                <div class="alert alert-success">
-                    {{session('thongbao')}}
-                </div>
-                @endif
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="box">
-                        <div class="box-header">
-                            <a href="admin/question" class="btn btn-success">Danh sách câu hỏi chưa trả lời</a>
-                        </div>
-                        <div class="box-header">
+                <div class="col-md-12 km-right">
+                    </b>
+                   
+                     
 
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <table id="example1" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th class="col-md-1">Họ tên</th>
-                                        <th class="col-md-3">Câu hỏi</th>
-                                        <th class="col-md-7">Câu trả lời</th>
-                                        <th class="col-md-1">Hành động</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($advisory as $item)
-                                    <tr>
-                                    <td>{{$item->name}}</td>
-                                    <td>{{$item->question}}</td>
-                                    <td>{{$item->cateanswers->answer}}</td>
-                                    
-                                    <td>
-                                        <a class="btn btn-danger" href="{{ url('admin/question/edit/'.$item->id) }}">Sửa</a>
-                                        
-                                    </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-
-
-                            </table>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                    <!-- /.box -->
+                            <p><br>
+                                <label>Câu hỏi :</label>
+                                <p>{{ $advisory->question }}</p>
+                                {{--  <textarea class="form-control"  name="" style="width: 100%;
+                                            height: 200px;
+                                            background: #fff;
+                                            margin-bottom: 10px;
+                                            border: 1px solid #ccc;">{{ $advisory->question }}</textarea>  --}}
+                            </p>
+                        <form method="POST">
+                            @csrf
+                           
+                        <label>Câu trả lời :</label>
+                        <p><br>
+                        <input type="hidden" name="id" value="{{ $advisory->id }}" >
+                        <textarea class="form-control" name="name" style="width: 100%;
+                                    height: 300px;
+                                    background: #fff;
+                                    margin-bottom: 10px;
+                                    border: 1px solid #ccc;">{{ $advisory->cateanswers->answer }}</textarea></p>
+                        <button style="align:right" type="submit" class="btn-danger btn">Sửa</button>
+                       
+                    </form>
                 </div>
                 <!-- /.col -->
             </div>
             <!-- /.row -->`
         </section>
-        <script>
+        {{-- <script>
             {
                 {
                     -- function thaotac(id) {
@@ -135,7 +116,7 @@ Danh sách câu hỏi
                 }
             }
 
-        </script>
+        </script> --}}
     </div>
 </div>
 

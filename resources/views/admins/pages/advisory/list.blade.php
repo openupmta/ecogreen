@@ -64,7 +64,7 @@ Danh sách câu hỏi
                                     <td>
                                         <a class="btn btn-info" href="{{ url('admin/question/answer/'.$item->id) }}">Trả lời</a>
                                         <a class="btn btn-danger" href="{{ url('admin/question/delete/'.$item->id) }}"
-                                            onclick="return confirm('Hành động sẽ xóa banner này! bạn có muốn tiếp tục?')">Xóa</a>
+                                            onclick="return confirm('Hành động sẽ xóa câu hỏi này! bạn có muốn tiếp tục?')">Xóa</a>
                                     </td>
                                     </tr>
                                     @endforeach
