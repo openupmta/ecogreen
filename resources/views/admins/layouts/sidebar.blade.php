@@ -40,6 +40,20 @@
 
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Introduce</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('introduce')}}"><i class="fa fa-circle-o"></i> Thêm</a></li>
+                    <li><a href="{{route('introduce')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
+
+                </ul>
+            </li>
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
