@@ -6,7 +6,7 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Thêm
+                Sửa
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -39,8 +39,8 @@
                 <!-- /.col -->
                 <div class="col-md-12">
                     <div class="box box-primary">
-                        <h3 style="text-align: left; padding-left: 5px">Thêm Giới Thiệu</h3>
-                        <form role="form" method="post" action="{{route('editintroduce',['id'=>$data->id])}}">
+                        <h3 style="text-align: left; padding-left: 5px">Sửa Giới Thiệu</h3>
+                        <form role="form" method="post" action="{{ url('admin/introduce/postedit/'.$data->id) }}">
                             @csrf
                                 <div class="form-group">
                                     <label for="exampleInputEmail1"> Nội dung </label>

@@ -45,31 +45,16 @@
 
                 </ul>
             </li>
-<<<<<<< HEAD
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-pie-chart"></i>
-                    <span>Introduce</span>
-=======
 
             <li class="@yield('khuyenmai') treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
                     <span>Khuyến mại</span>
->>>>>>> ac5d0fb02e949a28cb714e27921ad5e623e4d6f4
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-<<<<<<< HEAD
-                    <li><a href="{{route('introduce')}}"><i class="fa fa-circle-o"></i> Thêm</a></li>
-                    <li><a href="{{route('introduce')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
-
-                </ul>
-            </li>
-            <li class="active treeview">
-=======
                     <li><a href="admin/promotion"><i class="fa fa-circle-o"></i> Khuyến mại</a></li>
                     <li><a href="admin/expert"><i class="fa fa-circle-o"></i> Chuyên gia </a></li>
                     <li><a href="admin/catepromotion"><i class="fa fa-circle-o"></i> Đăng kí thành viên </a></li>
@@ -88,13 +73,23 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="admin/question"><i class="fa fa-circle-o"></i>Danh sách câu hỏi</a></li>
-    
+                    </ul>
+                </li>
+                <li class="@yield('gioithieu') treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i>
+                        <span>Quản ly giới thiệu</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="admin/introduce"><i class="fa fa-circle-o"></i>danh sách giơi thiệu</a></li>
                     </ul>
                 </li>
 
 
             <li class="treeview">
->>>>>>> ac5d0fb02e949a28cb714e27921ad5e623e4d6f4
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">

@@ -14,7 +14,7 @@ class IntroduceController extends Controller
      */
     public function index()
     {
-        $data=IntroduceModel::paginate(5);
+        $data=IntroduceModel::get();
         return view('admins.pages.form.IntroduceView',['data'=>$data]);
     }
 
@@ -36,11 +36,25 @@ class IntroduceController extends Controller
      */
     public function store(Request $request)
     {
+        $data=IntroduceModel::get();
+
+        $this->validate($request,[
+         'content'=>'required',
+        ],[
+          'content.required'=>'content là một trường bắt buộc',
+        ]
+    );
         $listIn=new IntroduceModel();
         $listIn->content=$request->content;
+        foreach ($data as $row) {
+            if($row->content==$listIn->content){
+                return redirect('admin/introduce/add')->with('thongbao','khong duoc trung content');
+            }
+        }
+    
         $listIn->status=$request->active;
         $listIn->save();
-        return redirect()->route('introduce');
+        return redirect('admin/introduce')->with('thongbao','thêm thành công !');;
     }
 
     /**
@@ -75,22 +89,40 @@ class IntroduceController extends Controller
      */
     public function update($id,Request $request)
     {
-        $data=IntroduceModel::find($id);
-        $data->content=$request->content;
+         $this->validate($request,[
+         'content'=>'required',
+        ],[
+          'content.required'=>'content là một trường bắt buộc',
+        ]
+    );
+         $data=IntroduceModel::find($id);
+          $model=IntroduceModel::get();
+         $data->content=$request->content;
+         foreach ($model as $row) {
+            if($row->content==$data->content){
+                return redirect()->back()->with('thongbao','khong duoc trung content');
+            }
+        }
         $data->status=$request->active;
         $data->save();
-        return redirect()->route('introduce');
+        return redirect('admin/introduce')->with('thongbao','sửa thành công giới thiệu!');;
+    }
+    public function anhien($id){
+         $data=IntroduceModel::find($id);
+         if($data->status==0){
+            $data->status = 1;
+         }else{
+            $data->status = 0;
+         }
+         $data->save();
+         return redirect('admin/introduce')->with('thongbao','an hien thanh cong');
     }
     public function delete($id){
         IntroduceModel::find($id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('thongbao','xóa thành công giới thiệu!');
 
     }
-    public function search(Request $request){
-        $search=$request->search;
-        $model=IntroduceModel::where('status','like','%'.$search.'%')->orderBy('id','desc')->limit(5)->get();
-        return view('admin.pages.form.SearchIntroduce',['model'=>$model]);
-    }
+    
 
     /**
      * Remove the specified resource from storage.

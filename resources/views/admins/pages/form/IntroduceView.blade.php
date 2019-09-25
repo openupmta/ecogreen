@@ -21,15 +21,20 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">web</li>
+                    <li class="active">introduce</li>
                 </ol>
             </section>
             <section class="content">
+                @if(session('thongbao'))
+                <div class="alert alert-success">
+                    {{session('thongbao')}}
+                </div>
+                @endif
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-header">
-                                <a href="{{route('get_addintroduce')}}" class="btn btn-success">Thêm</a>
+                                <a href="{{ url('admin/introduce/add')}}" class="btn btn-success">Thêm</a>
                             </div>
                             <div class="box-header">
 
@@ -55,17 +60,17 @@
                                            <td>
                                                 <!-- <a class="btn btn-primary" id="bt{{$row->id}}" style="display: block" onclick="thaotac({{$row->id}})" >Thao tác</a> -->
                                                <div id="button{{$row->id}}">
-                                                    <a class="btn btn-primary w-25" id="edit" href="{{route('get_editintroduce',['id'=>$row->id])}}" onclick="">Sửa</a>
+                                                    <a class="btn btn-primary w-25" id="edit" href="{{ url('admin/introduce/edit/'.$row->id) }}" onclick="">Sửa</a>
                                                     @if($row->status==1)
                                                         <a class="btn btn-info" style="width: 30%;" 
-                                                           href="" onclick="return confirm('Hành động sẽ ẩn Sản Phẩm này! bạn có muốn tiếp tục?')">Ẩn</a>
+                                                           href="{{ url('admin/introduce/anhien/'.$row->id) }}" onclick="return confirm('Hành động sẽ ẩn Sản Phẩm này! bạn có muốn tiếp tục?')">Ẩn</a>
                                                     @else
                                                         <a class="btn btn-warning"
-                                                           href="" onclick="return confirm('Hành động sẽ hiển thị Sản Phẩm mục này! bạn có muốn tiếp tục?')">Hiển
+                                                           href="{{ url('admin/introduce/anhien/'.$row->id) }}" onclick="return confirm('Hành động sẽ hiển thị Sản Phẩm mục này! bạn có muốn tiếp tục?')">Hiển
                                                                 thị</a>
 
                                                     @endif
-                                                   <a class="btn btn-danger" href="{{route('deleteintroduce',['id'=>$row->id])}}"
+                                                   <a class="btn btn-danger" href="{{ url('admin/introduce/delete/'.$row->id) }}"
                                                       onclick="return confirm('Hành động sẽ xóa web này! bạn có muốn tiếp tục?')">Xóa</a>
                                               </div>
                                             </td>

@@ -40,7 +40,7 @@
                 <div class="col-md-12">
                     <div class="box box-primary">
                         <h3 style="text-align: left; padding-left: 5px">Thêm Giới Thiệu</h3>
-                        <form role="form" method="post" action="{{route('postaddintroduce')}}">
+                        <form role="form" method="post" action="{{ url('admin/introduce/postadd')}}">
                             @csrf
                                 <div class="form-group">
                                     <label for="exampleInputEmail1"> Nội dung </label>
