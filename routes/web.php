@@ -21,9 +21,6 @@ Route::get('/gioi-thieu', function () {
 })->name('gioi-thieu');
 Route::get('/tu-van-suc-khoe.html','client\AdvisoryController@GetAdvisory')->name('tu-van-suc-khoe');
 Route::post('/tu-van-suc-khoe.html','client\AdvisoryController@PostAdvisory');
-
-
-
 Route::get('/san-pham', function () {
     return view('pages.sanpham');
 })->name('san-pham');
@@ -107,6 +104,16 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function ()
         Route::post('answer/{id}','admins\QuestionController@PostAnswer');
         
         
+    });
+    Route::prefix('introduce')->group(function(){
+       Route::get('','IntroduceController@index');
+       Route::get('add','IntroduceController@create');
+       Route::post('postadd','IntroduceController@store');
+       Route::get('edit/{id}','IntroduceController@edit');
+       Route::post('postedit/{id}','IntroduceController@update');
+       Route::get('delete/{id}','IntroduceController@delete');
+       Route::get('anhien/{id}','IntroduceController@anhien');
+
     });
 
 
