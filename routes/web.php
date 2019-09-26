@@ -12,7 +12,10 @@
 */
 
 use Illuminate\Support\Facades\Auth;
+use App\models\shipping;
+use App\models\commitment;
 
+use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('pages.index');
 })->name('trang-chu');
@@ -54,7 +57,9 @@ Route::get('/dang-ky', function () {
 })->name('dang-ky');
 
 Route::get('/chi-tiet-san-pham', function () {
-    return view('pages.chitiet-sanpham');
+    $shipping=shipping::all();
+    $commitment=commitment::all();
+    return view('pages.chitiet-sanpham',['shipping'=>$shipping,'commitment'=>$commitment]);
 })->name('chi-tiet-san-pham');
 
 
@@ -107,7 +112,22 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function ()
         
         
     });
+    Route::prefix('commitment')->group(function(){
+        Route::get('','admins\CommitmentController@List')->name('danhsachcommitment');
+        Route::get('add','admins\CommitmentController@AddCommitment')->name('addcommitment');
+        Route::post('add','admins\CommitmentController@PostCommitment')->name('addcommitment');
+        Route::get('edit/{id}','admins\CommitmentController@EditCommitment')->name('editcommitment');
+        Route::post('edit/{id}','admins\CommitmentController@PostEditCommitment')->name('editcommitment');
+        Route::get('delete/{id}','admins\CommitmentController@DeleteCommitment')->name('deletecommitment');
+    });
 
-
+    Route::prefix('shipping')->group(function(){
+        Route::get('','admins\ShipppingController@List')->name('danhsachshipping');
+        Route::get('add','admins\ShipppingController@AddShipping')->name('addshipping');
+        Route::post('add','admins\ShipppingController@PostShipping')->name('addshipping');
+        Route::get('edit/{id}','admins\ShipppingController@EditShipping')->name('editshipping');
+        Route::post('edit/{id}','admins\ShipppingController@PostEditShipping')->name('editshipping');
+        Route::get('delete/{id}','admins\ShipppingController@DeleteShipping')->name('deleteshipping');
+    });
 
 });
