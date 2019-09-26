@@ -73,7 +73,18 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="admin/question"><i class="fa fa-circle-o"></i>Danh sách câu hỏi</a></li>
-    
+                    </ul>
+                </li>
+                <li class="@yield('gioithieu') treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i>
+                        <span>Quản ly giới thiệu</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="admin/introduce"><i class="fa fa-circle-o"></i>danh sách giơi thiệu</a></li>
                     </ul>
                 </li>
                 <li class="@yield('tuvan') treeview">
