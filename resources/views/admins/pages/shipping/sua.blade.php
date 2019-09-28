@@ -52,7 +52,7 @@
                         <div class="box-body no-padding">
                             <ul class="nav nav-pills nav-stacked">
                                 
-                                <li><a href=""><i class="fa fa-envelope-o"></i> Thêm
+                                <li><a href="{{route('addshipping')}}"><i class="fa fa-envelope-o"></i> Thêm
                                         <span class="label label-primary pull-right">1</span></a></li>
                                 </a>
                                 </li>

@@ -18,7 +18,7 @@
 
             <section class="content-header">
                 <h1>
-                    Danh sách cam kết khách hàng
+                    Danh sách giới thiệu
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -41,44 +41,52 @@
                                     <thead>
                                     <tr>
                                         <th>STT</th>
+                                        <th>Tên thể loại</th>
+                                        <th>Tiêu đề</th>
+                                        <th>Slug</th>
                                         <th>Nội dung</th>
-                                        <th>Trạng thái</th>
+                                        <th>Chi tiết</th>
+                                        <th>Định lượng</th>
+                                        <th>Đơn giá</th>
+                                        <th>Yêu thích</th>
+                                      <th>Trạng thái</th>
                                         <th class="col-md-3">Hành động</th>
-                                        
-                                        <th class="col-md-3">Thao tác</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($commitment as $key=>$value)
-                                        
+                                    @foreach($products as $key => $value)
                                         <tr class="odd gradeX" align="center">
-                                            
                                             <td>{{$key+1}}</td>
-                                            <td>{!!$value->content!!}</td>
                                             <td>
-                                                @if($value->status==1)
-                                                    Hiển thị
-                                                    
-                                                @else
-                                                    Không Hiển Thị
-                                                    
-                                                @endif
+                                                @foreach ($cate_products as $c)
+                                                    @if ($c ->id == $value->cate_product_id)
+                                                        {{$c->name}}
+                                                    @endif
+                                                @endforeach
                                             </td>
-                                            <td>{{$value->created_at}}</td>
-
-                                            
+                                            <td>{{$value->title}}</td> 
+                                            <td>{{$value->slug}}</td>
+                                            <td>{!!$value->content!!}</td>
+                                            <td>{!!$value->detail!!}</td>
+                                            <td>{{$value->quantity}}</td>
+                                            <td>{{$value->price}}</td>
+                                            <td>{{$value->favorite}}</td>
+                                           <td> @if ($value->status ==1)
+                                                    Hiển thị
+                                                @else
+                                                    Không hiển thị
+                                                @endif  </td>
                                             <td>
                                                 
                                                 <div id="button{{$value->id}}">
-                                                    <a class="btn btn-primary" 
-                                                       href="{{route('editcommitment',['id'=>$value->id])}}"
-                                                       onclick="return confirm('Bạn có chắc chắn muốn sửa không!')">Sửa</a>
+                                                    <a class="btn btn-primary" id="edit"
+                                                       href="{{route('editproducts',['id'=>$value->id])}}"
+                                                       onclick="">Sửa</a>
                                                     @if($value->status==1)
                                                         <a class="btn btn-info"
                                                            href=""
                                                            onclick="return confirm('Hành động sẽ ẩn Sản Phẩm này! bạn có muốn tiếp tục?')">Ẩn</a>
-                                                           
                                                     @else
                                                         <a class="btn btn-warning"
                                                            href=""
@@ -87,27 +95,26 @@
 
                                                     @endif
                                                     <a class="btn btn-danger"
-                                                       href="{{route('deletecommitment',['id'=>$value->id])}}"
+                                                       href="{{route('deleteproducts',['id'=>$value->id])}}"
                                                        onclick="return confirm('Hành động sẽ xóa web này! bạn có muốn tiếp tục?')">Xóa</a>
                                                 </div>
 
 
                                         </tr>
-                                    
                                     @endforeach
-                                        </tbody>
+                                    </tbody>
 
 
-                                    </table>
-                                </div>
-                                <!-- /.box-body -->
+                                </table>
                             </div>
-                            <!-- /.box -->
-                            <!-- /.box -->
+                            <!-- /.box-body -->
                         </div>
-                        <!-- /.col -->
+                        <!-- /.box -->
+                        <!-- /.box -->
                     </div>
-                    <!-- /.row -->`
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->`
             </section>
             <script>
                 function thaotac(id) {

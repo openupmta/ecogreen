@@ -21,7 +21,7 @@ class Product extends Migration
             $table->string('slug')->unique();
             //Hiển thị cate product
             $table->tinyInteger('status')->default(1);
-
+            $table->timestamps();
         });
         //Sản phẩm
         Schema::create('products', function (Blueprint $table) {

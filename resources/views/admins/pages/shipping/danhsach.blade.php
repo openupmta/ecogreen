@@ -55,7 +55,7 @@
                                         <tr class="odd gradeX" align="center">
                                             
                                             <td>{{$key+1}}</td>
-                                            <td>{{$value->content}}</td>
+                                            <td>{!!$value->content!!}</td>
                                             <td>
                                                 @if($value->status==1)
                                                     Hiển thị

@@ -51,14 +51,7 @@
 
                         <div class="box-body no-padding">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href=""><i class="fa fa-inbox"></i> Thêm thể loại
-                                        Thêm
-                                        <span class="label label-primary pull-right">1</span></a>
-                                </li>
-                                <li><a href=""><i class="fa fa-envelope-o"></i> Thêm Thêm
-                                        <span class="label label-primary pull-right">1</span></a></li>
-                                </a>
-                                </li>
+                              
                                 <li><a href="{{route('danhsachshipping')}}"><i class="fa fa-file-text-o"></i> Danh
                                         sách</a></li>
 
@@ -74,7 +67,7 @@
                 <!-- /.col -->
                 <div class="col-md-9">
                     <div class="box box-primary">
-                        <h3 style="text-align: left; padding-left: 5px">Thêm Thêm</h3>
+                        <h3 style="text-align: left; padding-left: 5px">Thêm cam kết khách hàng </h3>
                         <form role="form" method="POST" action="{{route('addcommitment')}}"
                               enctype="multipart/form-data">
                             @csrf
