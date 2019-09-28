@@ -81,10 +81,7 @@
                                     <label for="exampleInputEmail1">Tên thể loại (*)</label>
                                     <input type="text" class="form-control" placeholder="Tên thể loại" name="name" value="">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Slug (*)</label>
-                                    <input type="text" class="form-control" placeholder="Slug" name="slug" value="">
-                                </div>
+                               
 
                                 <div class="form-group">
                                     <label>Hiển thị</label>

@@ -42,7 +42,7 @@
                                     <tr>
                                         <th>STT</th>
                                         <th>Tên thể loại<i></i></th>
-                                        <th>Slug</th>
+                                       
                                         <th class="col-md-3">Hành động</th>
                                         
                                         <th class="col-md-3">Thao tác</th>
@@ -56,7 +56,7 @@
                                             
                                             <td>{{$key+1}}</td>
                                             <td>{{$value->name}}</td>
-                                            <td>{{$value->slug}}</td>
+                                            
                                             <td>
                                                 @if($value->status==1)
                                                      Hiển thị

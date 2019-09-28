@@ -89,10 +89,7 @@
                                     <input type="text" class="form-control" placeholder="Tiêu đề" name="title" value="">
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Slug (*)</label>
-                                    <input type="text" class="form-control" placeholder="Slug" name="slug" value="">
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nội dung (*)</label>
                                     <div class="form-group">
@@ -116,10 +113,7 @@
                                     <label for="exampleInputEmail1"> Đơn giá   (*)</label>
                                     <input type="text" class="form-control" placeholder="Đơn giá" name="price" value="">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1"> Yêu thích   (*)</label>
-                                    <input type="text" class="form-control" placeholder="Yêu thích" name="favorite" value="">
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Hiển thị</label>
                                     <label class="radio-inline">
@@ -128,6 +122,12 @@
                                     <label class="radio-inline">
                                         <input name="active" value="0" type="radio">Không
                                     </label>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Ảnh sản phẩm</label>
+                                        <input type="file" id="image" name="image" required="">
+                                    </div>
                                 </div>
 
                                 {{--Hết tiêu điểm--}}

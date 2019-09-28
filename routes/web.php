@@ -15,13 +15,14 @@
 use Illuminate\Support\Facades\Auth;
 use App\models\shipping;
 use App\models\commitment;
-
-
-
+use App\models\products;
+use App\models\cate_products;
 use Illuminate\Http\Request;
 Route::get('/', function () {
-    return view('pages.index');
+    $cate_products = cate_products::all();
+    return view('pages.index',['cate_products'=>$cate_products]);
 })->name('trang-chu');
+
 Route::get('/gioi-thieu', function () {
     return view('pages.gioithieu');
 })->name('gioi-thieu');
@@ -157,12 +158,5 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function ()
         Route::post('edit/{id}','admins\ProductsController@PostEditproducts')->name('editproducts');
         Route::get('delete/{id}','admins\ProductsController@Deleteproducts')->name('deleteproducts');
     });
-    Route::prefix('images_product')->group(function(){
-        Route::get('','admins\ImagesProductController@List')->name('danhsachimageproducts');
-        Route::get('add','admins\ImagesProductController@Addimageproducts')->name('addimageproducts');
-        Route::post('add','admins\ImagesProductController@Postimageproducts')->name('addimageproducts');
-        Route::get('edit/{id}','admins\ImagesProductController@Editimageproducts')->name('editimageproducts');
-        Route::post('edit/{id}','admins\ImagesProductController@PostEditimageproducts')->name('editimageproducts');
-        Route::get('delete/{id}','admins\ImagesProductController@Deleteimageproducts')->name('deleteimageproducts');
-    });
+   
 });

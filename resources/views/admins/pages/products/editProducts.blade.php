@@ -51,7 +51,7 @@
 
                         <div class="box-body no-padding">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="{{route('addcateproducts   ')}}"><i class="fa fa-inbox"></i> Thêm thể loại
+                                <li><a href="{{route('addcateproducts')}}"><i class="fa fa-inbox"></i> Thêm thể loại
                                        sản phẩm
                                         <span class="label label-primary pull-right">1</span></a>
                                 </li>
@@ -93,10 +93,7 @@
                                     <input type="text" class="form-control" placeholder="Tiêu đề" name="title" value="{{$products->title}}">
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Slug (*)</label>
-                                    <input type="text" class="form-control" placeholder="Slug" name="slug" value="{{$products->slug}}">
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nội dung (*)</label>
                                     <div class="form-group">
@@ -120,10 +117,7 @@
                                     <label for="exampleInputEmail1"> Đơn giá   (*)</label>
                                     <input type="text" class="form-control" placeholder="Đơn giá" name="price" value="{{$products->price}}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1"> Yêu thích   (*)</label>
-                                    <input type="text" class="form-control" placeholder="Yêu thích" name="favorite" value="{{$products->favorite}}">
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Hiển thị</label>
                                    @if($products->status == 1)
@@ -142,7 +136,15 @@
                                     </label>
                                     @endif
                                 </div>
-
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Ảnh sản phẩm</label>
+                                        <input type="file" id="image" name="image"  value="{{ $products->image }}">
+                                        <label ><img src="image/banner/{{ $products->image }}" alt="" width="100px" height="50px"></label>
+                                            
+                                            
+                                    </div>
+                                </div>
                               
                                 
                                 {{--Hết tiêu điểm--}}

@@ -40,17 +40,15 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>STT</th>
-                                        <th>Tên thể loại</th>
-                                        <th>Tiêu đề</th>
-                                        <th>Slug</th>
-                                        <th>Nội dung</th>
-                                        <th>Chi tiết</th>
-                                        <th>Định lượng</th>
-                                        <th>Đơn giá</th>
-                                        <th>Yêu thích</th>
-                                      <th>Trạng thái</th>
-                                        <th class="col-md-3">Hành động</th>
+                                        <th class="text-center" width = "5%">STT</th>
+                                        <th class="text-center" width = "15%">Ảnh thumbnail</th>
+                                        <th class="text-center" width = "15%">Tên thể loại</th>
+                                        <th class="text-center" width = "15%">Tiêu đề</th>
+                                        <th class="text-center" width = "5%">Định lượng</th>
+                                        <th class="text-center" width = "10%">Đơn giá</th>
+                                        <th class="text-center" width = "10%">Yêu thích</th>
+                                        <th class="text-center" width = "10%">Trạng thái</th>
+                                        <th class="text-center" width = "20%">Hành động</th>
 
                                     </tr>
                                     </thead>
@@ -58,17 +56,17 @@
                                     @foreach($products as $key => $value)
                                         <tr class="odd gradeX" align="center">
                                             <td>{{$key+1}}</td>
+                                            <td><img src="image/banner/{{ $value->image }}" alt="" width="100px" height="50px"></td>
+                                            
                                             <td>
-                                                @foreach ($cate_products as $c)
-                                                    @if ($c ->id == $value->cate_product_id)
-                                                        {{$c->name}}
-                                                    @endif
-                                                @endforeach
+                                            @foreach ($cate_products as $item)
+                                                @if ($value->cate_product_id == $item->id)
+                                                    {{$item->name}}
+                                                @endif
+                                            @endforeach 
                                             </td>
-                                            <td>{{$value->title}}</td> 
-                                            <td>{{$value->slug}}</td>
-                                            <td>{!!$value->content!!}</td>
-                                            <td>{!!$value->detail!!}</td>
+                                            <td>{{$value->title}}</td>
+                                            
                                             <td>{{$value->quantity}}</td>
                                             <td>{{$value->price}}</td>
                                             <td>{{$value->favorite}}</td>
@@ -98,7 +96,7 @@
                                                        href="{{route('deleteproducts',['id'=>$value->id])}}"
                                                        onclick="return confirm('Hành động sẽ xóa web này! bạn có muốn tiếp tục?')">Xóa</a>
                                                 </div>
-
+                                            </td>
 
                                         </tr>
                                     @endforeach
