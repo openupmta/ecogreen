@@ -128,8 +128,7 @@
                         <li><a href="{{route('danhsachcateproducts')}}"><i class="fa fa-circle-o"></i>Danh sách thể loại sản phẩm</a></li>
                         <li><a href="{{route('addproducts')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
                         <li><a href="{{route('danhsachproducts')}}"><i class="fa fa-circle-o"></i>Danh sách sản phẩm</a></li>
-                        <li><a href="{{route('addimageproducts')}}"><i class="fa fa-circle-o"></i>Thêm ảnh sản phẩm</a></li>
-                        <li><a href=""><i class="fa fa-circle-o"></i>Danh sách ảnh sản phẩm</a></li>
+                       
                     </ul>
                 </li>
             <li class="treeview">

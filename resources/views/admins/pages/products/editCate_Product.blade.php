@@ -84,11 +84,7 @@
                                     <label for="exampleInputEmail1">Tên thể loại (*)</label>
                                     <input type="text" class="form-control" placeholder="Tên thể loại" name="name" value="{{$cate_products->name}}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Slug (*)</label>
-                                    <input type="text" class="form-control" placeholder="Slug" name="slug" value="{{$cate_products->slug    }}">
-                                </div>
-
+                    
                                 <div class="form-group">
                                     <label class="radio-inline">
                                         <input name="active" value="1" type="radio"
@@ -109,7 +105,7 @@
                                 {{--Hết tiêu điểm--}}
                                 
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Thêm</button>
+                                    <button type="submit" class="btn btn-primary">Sửa</button>
                                 </div>
 
                             </div>

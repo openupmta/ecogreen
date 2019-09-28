@@ -18,16 +18,16 @@ class CateproductsController extends Controller
         $this->validate( $request,
         [
             'name' => 'required',
-            'slug'=>'required'
+            'active'=>'required'
         ],
         [
             'name.required' => 'Bạn chưa nhập thể loại',
-           'slug.required'=> 'Bạn chưa nhập slug'
+            'active.required'=>'Bạn chưa nhập trạng thái'
 
-        ]);
+        ]); 
         $cate_products = new cate_products();
         $cate_products->name = $request->name;
-        $cate_products->slug = $request->slug;
+        $cate_products->slug = $request->name;
         $cate_products->status = $request->active;
         $cate_products->save();
         return redirect()->route('danhsachcateproducts')->with('thongbao','Thêm thành công');
@@ -42,16 +42,16 @@ class CateproductsController extends Controller
         $this->validate( $request,
         [
             'name' => 'required',
-            'slug'=>'required'
+            'active'=>'required'
         ],
         [
             'name.required' => 'Bạn chưa nhập thể loại',
-           'slug.required'=> 'Bạn chưa nhập slug'
+            'active.required'=>'Bạn chưa nhập trạng thái'
 
         ]);
        
         $cate_products->name = $request->name;
-        $cate_products->slug = $request->slug;
+        $cate_products->slug = $request->name;
         $cate_products->status = $request->active;
 
         $cate_products->save();
