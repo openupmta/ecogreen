@@ -133,7 +133,6 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function ()
 
 
     });
-
     Route::prefix('shipping')->group(function(){
         Route::get('','admins\ShipppingController@List')->name('danhsachshipping');
         Route::get('add','admins\ShipppingController@AddShipping')->name('addshipping');
@@ -142,5 +141,28 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function ()
         Route::post('edit/{id}','admins\ShipppingController@PostEditShipping')->name('editshipping');
         Route::get('delete/{id}','admins\ShipppingController@DeleteShipping')->name('deleteshipping');
     });
-
+    Route::prefix('cateproducts')->group(function(){
+        Route::get('','admins\CateproductsController@List')->name('danhsachcateproducts');
+        Route::get('add','admins\CateproductsController@AddCateproducts')->name('addcateproducts');
+        Route::post('add','admins\CateproductsController@PostCateproducts')->name('addcateproducts');
+        Route::get('edit/{id}','admins\CateproductsController@EditCateproducts')->name('editcateproducts');
+        Route::post('edit/{id}','admins\CateproductsController@PostEditCateproducts')->name('editcateproducts');
+        Route::get('delete/{id}','admins\CateproductsController@DeleteCateproducts')->name('deletecateproducts');
+    });
+    Route::prefix('products')->group(function(){
+        Route::get('','admins\ProductsController@List')->name('danhsachproducts');
+        Route::get('add','admins\ProductsController@Addproducts')->name('addproducts');
+        Route::post('add','admins\ProductsController@Postproducts')->name('addproducts');
+        Route::get('edit/{id}','admins\ProductsController@Editproducts')->name('editproducts');
+        Route::post('edit/{id}','admins\ProductsController@PostEditproducts')->name('editproducts');
+        Route::get('delete/{id}','admins\ProductsController@Deleteproducts')->name('deleteproducts');
+    });
+    Route::prefix('images_product')->group(function(){
+        Route::get('','admins\ImagesProductController@List')->name('danhsachimageproducts');
+        Route::get('add','admins\ImagesProductController@Addimageproducts')->name('addimageproducts');
+        Route::post('add','admins\ImagesProductController@Postimageproducts')->name('addimageproducts');
+        Route::get('edit/{id}','admins\ImagesProductController@Editimageproducts')->name('editimageproducts');
+        Route::post('edit/{id}','admins\ImagesProductController@PostEditimageproducts')->name('editimageproducts');
+        Route::get('delete/{id}','admins\ImagesProductController@Deleteimageproducts')->name('deleteimageproducts');
+    });
 });

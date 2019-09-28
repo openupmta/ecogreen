@@ -115,6 +115,23 @@
                         
                     </ul>
                 </li>
+                <li class="@yield('tuvan') treeview">
+                    <a href="#">
+                        <i class="fa fa-fw fa-industry"></i>
+                        <span>Sản phẩm</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('addcateproducts')}}"><i class="fa fa-circle-o"></i>Thêm thể loại sản phẩm</a></li>
+                        <li><a href="{{route('danhsachcateproducts')}}"><i class="fa fa-circle-o"></i>Danh sách thể loại sản phẩm</a></li>
+                        <li><a href="{{route('addproducts')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
+                        <li><a href="{{route('danhsachproducts')}}"><i class="fa fa-circle-o"></i>Danh sách sản phẩm</a></li>
+                        <li><a href="{{route('addimageproducts')}}"><i class="fa fa-circle-o"></i>Thêm ảnh sản phẩm</a></li>
+                        <li><a href=""><i class="fa fa-circle-o"></i>Danh sách ảnh sản phẩm</a></li>
+                    </ul>
+                </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>

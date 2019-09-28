@@ -18,7 +18,7 @@
 
             <section class="content-header">
                 <h1>
-                    Danh sách cam kết khách hàng
+                    Danh sách thể loại sản phẩm
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -26,11 +26,11 @@
                 </ol>
             </section>
             <section class="content">
-                <div class="row">
+                <div class="row">       
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-header">
-                                <a href="{{route('addproducts')}}" class="btn btn-success">Thêm</a>
+                                <a href="{{route('addcateproducts')}}" class="btn btn-success">Thêm</a>
                             </div>
                             <div class="box-header">
 
@@ -41,8 +41,8 @@
                                     <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Nội dung</th>
-                                        <th>Trạng thái</th>
+                                        <th>Tên thể loại<i></i></th>
+                                        <th>Slug</th>
                                         <th class="col-md-3">Hành động</th>
                                         
                                         <th class="col-md-3">Thao tác</th>
@@ -50,44 +50,45 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($commitment as $key=>$value)
+                                    @foreach($cate_products as $key => $value)
                                         
                                         <tr class="odd gradeX" align="center">
                                             
                                             <td>{{$key+1}}</td>
-                                            <td>{!!$value->content!!}</td>
+                                            <td>{{$value->name}}</td>
+                                            <td>{{$value->slug}}</td>
                                             <td>
                                                 @if($value->status==1)
-                                                    Hiển thị
+                                                     Hiển thị
                                                     
                                                 @else
                                                     Không Hiển Thị
                                                     
                                                 @endif
                                             </td>
-                                            <td>{{$value->created_at}}</td>
 
                                             
                                             <td>
                                                 
                                                 <div id="button{{$value->id}}">
                                                     <a class="btn btn-primary" 
-                                                       href="{{route('editcommitment',['id'=>$value->id])}}"
+                                                       href="{{route('editcateproducts',['id'=>$value->id])}}"
                                                        onclick="return confirm('Bạn có chắc chắn muốn sửa không!')">Sửa</a>
                                                     @if($value->status==1)
                                                         <a class="btn btn-info"
-                                                           href=""
+                                                           href="{{route('danhsachcateproducts')}}"
                                                            onclick="return confirm('Hành động sẽ ẩn Sản Phẩm này! bạn có muốn tiếp tục?')">Ẩn</a>
                                                            
                                                     @else
                                                         <a class="btn btn-warning"
-                                                           href=""
+                                                           href="{{route('danhsachcateproducts')}}"
                                                            onclick="return confirm('Hành động sẽ hiển thị Sản Phẩm mục này! bạn có muốn tiếp tục?')">Hiển
                                                             thị</a>
+                                                            
 
                                                     @endif
                                                     <a class="btn btn-danger"
-                                                       href="{{route('deletecommitment',['id'=>$value->id])}}"
+                                                       href="{{route('deletecateproducts',['id'=>$value->id])}}"
                                                        onclick="return confirm('Hành động sẽ xóa web này! bạn có muốn tiếp tục?')">Xóa</a>
                                                 </div>
 
