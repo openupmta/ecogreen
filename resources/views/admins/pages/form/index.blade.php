@@ -18,7 +18,7 @@
 
             <section class="content-header">
                 <h1>
-                    Danh Sách web
+                    Danh sách giới thiệu
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -41,7 +41,7 @@
                                     <thead>
                                     <tr>
                                         <th>Tiêu đề</th>
-                                        {{--<th>Tóm tắt</th>--}}
+                                        <th>Tóm tắt</th>
                                         <th>Ảnh</th>
                                         <th>Thể loại</th>
                                         <th>Thời gian</th>

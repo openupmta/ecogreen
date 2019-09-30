@@ -11,11 +11,20 @@
 |
 */
 
-// use Illuminate\Support\Facades\Auth;
 
 Route::get('/','client\HomeController@GetIndex')->name('trang-chu');
 
 
+use Illuminate\Support\Facades\Auth;
+use App\models\shipping;
+use App\models\commitment;
+use App\models\products;
+use App\models\cate_products;
+use Illuminate\Http\Request;
+Route::get('/', function () {
+    $cate_products = cate_products::all();
+    return view('pages.index',['cate_products'=>$cate_products]);
+})->name('trang-chu');
 
 Route::get('/gioi-thieu', function () {
     return view('pages.gioithieu');
@@ -48,7 +57,9 @@ Route::get('/dang-ky', function () {
 })->name('dang-ky');
 
 Route::get('/chi-tiet-san-pham', function () {
-    return view('pages.chitiet-sanpham');
+    $shipping=shipping::all();
+    $commitment=commitment::all();
+    return view('pages.chitiet-sanpham',['shipping'=>$shipping,'commitment'=>$commitment]);
 })->name('chi-tiet-san-pham');
 //chi tiết câu hỏi
 Route::get('{slug_question}.html','client\DetailQuestionFrequentController@GetDeteil')->name('chi-tiet');
@@ -136,6 +147,48 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function ()
     });
    
 
+    Route::prefix('commitment')->group(function(){
+        Route::get('','admins\CommitmentController@List')->name('danhsachcommitment');
+        Route::get('add','admins\CommitmentController@AddCommitment')->name('addcommitment');
+        Route::post('add','admins\CommitmentController@PostCommitment')->name('addcommitment');
+        Route::get('edit/{id}','admins\CommitmentController@EditCommitment')->name('editcommitment');
+        Route::post('edit/{id}','admins\CommitmentController@PostEditCommitment')->name('editcommitment');
+        Route::get('delete/{id}','admins\CommitmentController@DeleteCommitment')->name('deletecommitment');
+    });
+    Route::prefix('introduce')->group(function(){
+       Route::get('','IntroduceController@index');
+       Route::get('add','IntroduceController@create');
+       Route::post('postadd','IntroduceController@store');
+       Route::get('edit/{id}','IntroduceController@edit');
+       Route::post('postedit/{id}','IntroduceController@update');
+       Route::get('delete/{id}','IntroduceController@delete');
+       Route::get('anhien/{id}','IntroduceController@anhien');
 
 
+    });
+    Route::prefix('shipping')->group(function(){
+        Route::get('','admins\ShipppingController@List')->name('danhsachshipping');
+        Route::get('add','admins\ShipppingController@AddShipping')->name('addshipping');
+        Route::post('add','admins\ShipppingController@PostShipping')->name('addshipping');
+        Route::get('edit/{id}','admins\ShipppingController@EditShipping')->name('editshipping');
+        Route::post('edit/{id}','admins\ShipppingController@PostEditShipping')->name('editshipping');
+        Route::get('delete/{id}','admins\ShipppingController@DeleteShipping')->name('deleteshipping');
+    });
+    Route::prefix('cateproducts')->group(function(){
+        Route::get('','admins\CateproductsController@List')->name('danhsachcateproducts');
+        Route::get('add','admins\CateproductsController@AddCateproducts')->name('addcateproducts');
+        Route::post('add','admins\CateproductsController@PostCateproducts')->name('addcateproducts');
+        Route::get('edit/{id}','admins\CateproductsController@EditCateproducts')->name('editcateproducts');
+        Route::post('edit/{id}','admins\CateproductsController@PostEditCateproducts')->name('editcateproducts');
+        Route::get('delete/{id}','admins\CateproductsController@DeleteCateproducts')->name('deletecateproducts');
+    });
+    Route::prefix('products')->group(function(){
+        Route::get('','admins\ProductsController@List')->name('danhsachproducts');
+        Route::get('add','admins\ProductsController@Addproducts')->name('addproducts');
+        Route::post('add','admins\ProductsController@Postproducts')->name('addproducts');
+        Route::get('edit/{id}','admins\ProductsController@Editproducts')->name('editproducts');
+        Route::post('edit/{id}','admins\ProductsController@PostEditproducts')->name('editproducts');
+        Route::get('delete/{id}','admins\ProductsController@Deleteproducts')->name('deleteproducts');
+    });
+   
 });

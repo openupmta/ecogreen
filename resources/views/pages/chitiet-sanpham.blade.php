@@ -44,14 +44,14 @@ Chi tiết sản phẩm
 				</div>
 				<div class="thong-tin-sp">
 					  <ul class="nav nav-pills">
-					    <li class="active"><a data-toggle="pill" href="#home" style="background-color: #8BC53F;">Chi tiết sản phẩm</a></li>
-					    <li><a data-toggle="pill" href="#menu1">Giao hàng - Thanh toán</a></li>
-					    <li><a data-toggle="pill" href="#menu2">Cam kết từ chúng tôi</a></li>
-					    <li><a data-toggle="pill" href="#menu3">Đánh giá (0)</a></li>
+					    <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#home">Chi tiết sản phẩm</a></li>
+					    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#menu1">Giao hàng - Thanh toán</a></li>
+					    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#menu2">Cam kết từ chúng tôi</a></li>
+					    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#menu3">Đánh giá (0)</a></li>
 					  </ul>
 					  
 					  <div class="tab-content mt-4">
-					    <div id="home" class="tab-pane fade in active">
+					    <div id="home" class="tab-pane fade in active show">
 					      <h3>Công Dụng</h3>
 					      <p>Qik (For Women) với công thức chuyên biệt cho nữ giới, chứa các tinh chất thiên nhiên, giúp cân bằng hệ thần kinh nội tiết và tăng trưởng tế bào mầm tóc:</p>
 					      <ul>
@@ -113,12 +113,18 @@ Chi tiết sản phẩm
 					      </table>
 					    </div>
 					    <div id="menu1" class="tab-pane fade">
-					      <h3>Menu 1</h3>
-					      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<h3>GIAO HÀNG
+							</h3>
+							@foreach ($shipping as $item)
+								{!!$item->content!!}
+							@endforeach
 					    </div>
 					    <div id="menu2" class="tab-pane fade">
-					      <h3>Menu 2</h3>
-					      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+					      <h3>CAM KẾT TỪ ECOGREEN
+						  </h3>
+					      @foreach ($commitment as $item)
+								{!!$item->content!!}
+							@endforeach
 					    </div>
 					    <div id="menu3" class="tab-pane fade">
 					      <p>Không có đánh giá nào</p>

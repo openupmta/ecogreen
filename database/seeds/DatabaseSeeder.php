@@ -615,6 +615,144 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+            DB::table('shipping')->delete();
+            Db::table('shipping')->insert(
+                 ['id'=>1, 'content'=>'<p>mail/sms về th&ocirc;ng tin đơn h&agrave;ng trong thời gian sớm nhất.</p>
+
+                 <p>Hiện tại Ecogreen hợp t&aacute;c với ViettelPost - đơn vị chuyển ph&aacute;t h&agrave;ng đầu tại Việt Nam để thực hiện chuyển ph&aacute;t c&aacute;c sản phẩm tới Qu&yacute; kh&aacute;ch h&agrave;ng.</p>
+                 
+                 <p>&nbsp;</p>
+                 
+                 <p>Sau khi x&aacute;c nhận th&agrave;nh c&ocirc;ng, đơn h&agrave;ng sẽ được giao đến Qu&yacute; kh&aacute;ch trong khoảng thời gian sau đ&acirc;y:</p>
+                 
+                 <p>&nbsp;</p>
+                 
+                 <table>
+                     <tbody>
+                         <tr>
+                             <td>Địa chỉ giao h&agrave;ng</td>
+                             <td>Thời gian giao h&agrave;ng</td>
+                         </tr>
+                         <tr>
+                             <td>Th&agrave;nh phố Hồ Ch&iacute; Minh v&agrave; H&agrave; Nội</td>
+                             <td>6 - 24h l&agrave;m việc</td>
+                         </tr>
+                         <tr>
+                             <td>C&aacute;c khu vực tỉnh, th&agrave;nh c&ograve;n lại</td>
+                             <td>2 - 4 ng&agrave;y l&agrave;m việc</td>
+                         </tr>
+                     </tbody>
+                 </table>
+                 
+                 <p>*Lưu &yacute;: thời gian giao h&agrave;ng dự kiến ở tr&ecirc;n chỉ &aacute;p dụng cho c&aacute;c đơn h&agrave;ng trong nước.</p>
+                 
+                 <p>&nbsp;</p>
+                 
+                 <p>Tất cả c&aacute;c đơn h&agrave;ng từ khắp cả nước sẽ được chia l&agrave;m 2 khu vực v&agrave; ph&iacute; vận chuyển &aacute;p dụng cho tất cả c&aacute;c đơn h&agrave;ng của Qu&yacute; kh&aacute;ch (trong đ&oacute;, Ecogreen đ&atilde; hỗ trợ 50-70% chi ph&iacute; giao h&agrave;ng v&agrave; ph&iacute; thu tiền hộ):</p>
+                 
+                 <p>&nbsp;</p>
+                 
+                 <p>Khu vực 1:&nbsp;Th&agrave;nh phố Hồ Ch&iacute; Minh v&agrave; H&agrave; Nội l&agrave; 10.000đ/đơn h&agrave;ng bất kỳ</p>
+                 
+                 <p>Khu vực 2:&nbsp;C&aacute;c tỉnh, th&agrave;nh phố c&ograve;n lại tr&ecirc;n to&agrave;n quốc l&agrave; 20.000đ/đơn h&agrave;ng bất kỳ</p>
+                 
+                 <p>&nbsp;</p>
+                 
+                 <table>
+                     <tbody>
+                         <tr>
+                             <td>Qu&yacute; kh&aacute;ch h&agrave;ng lưu &yacute; lu&ocirc;n lu&ocirc;n kiểm tra kĩ t&igrave;nh trạng sản phẩm sau khi nhận được ngay tại thời điểm nhận h&agrave;ng v&agrave; c&oacute; sự chứng kiến của nh&acirc;n vi&ecirc;n giao h&agrave;ng. C&aacute;c vấn đề như bể vỡ, vỏ hộp chai thuốc bị r&aacute;ch n&aacute;t hoặc seal đ&atilde; bị mở, &hellip; Tất cả những sự cố n&agrave;y sẽ chỉ được đổi trả nếu do lỗi từ ph&iacute;a nh&acirc;n vi&ecirc;n của Ecogreen v&agrave; đơn vị vận chuyển ViettelPost.</td>
+                         </tr>
+                     </tbody>
+                 </table>
+                 
+                 <p>Trong qu&aacute; tr&igrave;nh giao h&agrave;ng c&oacute; thể ph&aacute;t sinh những vấn đề ngo&agrave;i &yacute; muốn về ph&iacute;a Kh&aacute;ch h&agrave;ng khiến việc giao h&agrave;ng bị chậm trễ. Ecogreen sẽ linh động giải quyết cho Kh&aacute;ch h&agrave;ng trong từng trường hợp như sau:</p>
+                 
+                 <p>- Kh&aacute;ch h&agrave;ng kh&ocirc;ng cung cấp ch&iacute;nh x&aacute;c v&agrave; đầy đủ địa chỉ giao h&agrave;ng v&agrave; số điện thoại li&ecirc;n lạc.</p>
+                 
+                 <p>- Kh&aacute;ch h&agrave;ng kh&ocirc;ng sẵn s&agrave;ng để nhận h&agrave;ng v&agrave;o thời điểm giao h&agrave;ng.</p>
+                 
+                 <p>- Ecogreen đ&atilde; giao h&agrave;ng đ&uacute;ng hẹn theo th&ocirc;ng tin giao h&agrave;ng nhưng kh&ocirc;ng li&ecirc;n lạc được với Kh&aacute;ch h&agrave;ng v&agrave; chờ tại địa điểm giao h&agrave;ng qu&aacute; 10 ph&uacute;t, mọi nỗ lực của nh&acirc;n vi&ecirc;n giao h&agrave;ng nhằm li&ecirc;n hệ với Kh&aacute;ch h&agrave;ng đều kh&ocirc;ng th&agrave;nh c&ocirc;ng.</p>
+                 
+                 <p>- Những trường hợp bất khả kh&aacute;ng như thi&ecirc;n tai, tai nạn giao th&ocirc;ng, gi&aacute;n đoạn mạng lưới giao th&ocirc;ng, đứt c&aacute;p, hệ thống bị tấn c&ocirc;ng.</p>
+                 
+                 <p>C&aacute;c trường hợp kh&aacute;c: Trong trường hợp xảy ra sự cố phức tạp hơn, Ecogreen bảo đảm quyền lợi lớn nhất thuộc về Kh&aacute;ch h&agrave;ng.</p>
+                 
+                 <p>&nbsp;</p>
+                 
+                 <blockquote>THANH TO&Aacute;N</blockquote>
+                 
+                 <p>Ecogreen hỗ trợ 4 phương thức thanh to&aacute;n cho tất cả c&aacute;c đơn h&agrave;ng tr&ecirc;n hệ thống.</p>
+                 
+                 <p>&nbsp;</p>
+                 
+                 <p>1. Thanh to&aacute;n khi nhận h&agrave;ng (COD): Qu&yacute; kh&aacute;ch sẽ thanh to&aacute;n tiền mặt cho nh&acirc;n vi&ecirc;n giao h&agrave;ng ngay sau khi nhận được h&agrave;ng.</p>
+                 
+                 <p>2. Thanh to&aacute;n bằng Internet Banking: Thẻ/t&agrave;i khoản ATM của qu&yacute; kh&aacute;ch c&oacute; đăng k&iacute; sử dụng dịch vụ internet banking</p>
+                 
+                 <p>3. Thanh to&aacute;n bằng thẻ quốc tế Visa, Master Card</p>
+                 
+                 <p>4. Chuyển khoản trực tiếp tại ng&acirc;n h&agrave;ng.</p>
+                 
+                 <p>&nbsp;</p>
+                 
+                 <p>Mọi thắc mắc v&agrave; g&oacute;p &yacute; vui l&ograve;ng li&ecirc;n hệ Hotline Chăm s&oacute;c kh&aacute;ch h&agrave;ng:&nbsp;(028) 38115118</p>'
+                 ]);
+                 DB::table('commitment')->delete();
+                 DB::table('commitment')->insert(
+                     ['id'=>1, 'content'=>'<p><strong>Cam kết b&aacute;n h&agrave;ng tại Ecogreen được x&acirc;y dựng dựa tr&ecirc;n uy t&iacute;n v&agrave; sứ mệnh mang đến những sản phẩm chất lượng, tốt nhất cho kh&aacute;ch h&agrave;ng.</strong></p>
+
+                     <ul>
+                         <li>Mang đến cho kh&aacute;ch h&agrave;ng sản phẩm ch&iacute;nh h&atilde;ng, c&oacute; tem bảo h&agrave;nh v&agrave; nguồn gốc xuất xứ, l&ocirc; sản xuất v&agrave; hạn sử dụng đầy đủ.</li>
+                         <li>Ho&agrave;n tiền 100% cho kh&aacute;ch h&agrave;ng nếu sản phẩm bị thất lạc, sai s&oacute;t từ ph&iacute;a Ecogreen dẫn đến giao dịch kh&ocirc;ng th&agrave;nh c&ocirc;ng hoặc sản phẩm bị hư hỏng, bể vỡ do lỗi của Ecogreen.</li>
+                         <li>Lu&ocirc;n cung cấp sản phẩm đ&uacute;ng chất lượng như h&igrave;nh ảnh v&agrave; th&ocirc;ng tin đăng tải theo đ&uacute;ng mức gi&aacute; được ni&ecirc;m yết.</li>
+                         <li>Giữ b&iacute; mật tuyệt đối th&ocirc;ng tin của kh&aacute;ch h&agrave;ng, kh&ocirc;ng chia sẻ cho c&aacute;c c&aacute; nh&acirc;n v&agrave; tổ chức kh&aacute;c.</li>
+                         <li>B&aacute;n đ&uacute;ng gi&aacute; tại các nh&agrave; thuốc Eco (chưa bao gồm ph&iacute; giao h&agrave;ng).</li>
+                         <li>Giao h&agrave;ng tận nơi tr&ecirc;n to&agrave;n quốc.</li>
+                         <li>Cam kết bảo mật th&ocirc;ng tin c&aacute; nh&acirc;n của tất cả kh&aacute;ch h&agrave;ng.</li>
+                     </ul>
+                     
+                     <p><strong>Th&ocirc;ng tin của kh&aacute;ch h&agrave;ng sẽ được Ecogreen sử dụng với những c&ocirc;ng việc được đưa ra trong ch&iacute;nh s&aacute;ch n&agrave;y.</strong></p>
+                     
+                     <ul>
+                         <li>Ecogreen chỉ sử dụng th&ocirc;ng tin của kh&aacute;ch h&agrave;ng trong thời gian m&agrave; ph&aacute;p luật cho ph&eacute;p v&agrave; chỉ phục vụ cho giao dịch giữa 2 b&ecirc;n.</li>
+                         <li>Th&ocirc;ng tin của kh&aacute;ch h&agrave;ng tuyệt đối sẽ kh&ocirc;ng được mua b&aacute;n hay chuyển giao cho b&ecirc;n thứ 3.</li>
+                     </ul>
+                     
+                     <p><strong>Th&ocirc;ng tin kh&aacute;ch h&agrave;ng m&agrave; ch&uacute;ng t&ocirc;i thu thập v&agrave; do kh&aacute;ch h&agrave;ng đồng &yacute; cung cấp gồm:</strong></p>
+                     
+                     <ol>
+                         <li>T&ecirc;n kh&aacute;ch h&agrave;ng</li>
+                         <li>Số điện thoại li&ecirc;n hệ</li>
+                         <li>Email (nếu c&oacute;)</li>
+                         <li>Địa chỉ giao nhận</li>
+                     </ol>
+                     
+                     <p><strong>C&aacute;c th&ocirc;ng tin tr&ecirc;n được Ecogreen sử dụng v&agrave;o c&aacute;c mục đ&iacute;ch:</strong></p>
+                     
+                     <ul>
+                         <li>Li&ecirc;n lạc với kh&aacute;ch h&agrave;ng để x&aacute;c minh đơn đặt h&agrave;ng.</li>
+                         <li>Th&ocirc;ng b&aacute;o về việc giao h&agrave;ng v&agrave; hỗ trợ kh&aacute;ch h&agrave;ng.</li>
+                         <li>Xử l&yacute; đơn h&agrave;ng của kh&aacute;ch h&agrave;ng tr&ecirc;n hệ thống</li>
+                         <li>Ecogreen sẽ chia sẻ th&ocirc;ng tin kh&aacute;ch h&agrave;ng (Địa chỉ nhận h&agrave;ng v&agrave; số điện thoại liện hệ) với c&ocirc;ng ty chuyển ph&aacute;t nhanh để phục vụ cho việc giao h&agrave;ng tới qu&yacute; kh&aacute;ch.</li>
+                     </ul>
+                     
+                     <p><strong>Bảo mật th&ocirc;ng tin c&aacute; nh&acirc;n kh&aacute;ch h&agrave;ng</strong></p>
+                     
+                     <p>Ecogreen đảm bảo tất cả mọi th&ocirc;ng tin của kh&aacute;ch h&agrave;ng sẽ được bảo mật tuyệt đối v&agrave; sử dụng đ&uacute;ng mục đ&iacute;ch.</p>
+                     
+                     <p>Sau khi đ&atilde; ho&agrave;n th&agrave;nh giao dịch th&ocirc;ng tin kh&aacute;ch h&agrave;ng sẽ được ch&uacute;ng t&ocirc;i x&oacute;a khỏi hệ thống chỉ lưu lại c&aacute;c th&ocirc;ng tin cần thiết để hỗ trợ kh&aacute;ch h&agrave;ng dịch vụ về sau.</p>
+                     
+                     <p>&nbsp;</p>
+                     
+                     <p><strong>Ch&iacute;nh s&aacute;ch bảo mật tại Ecogreen</strong></p>
+                     
+                     <ul>
+                         <li>Ecogreen c&oacute; thể thay đổi ch&iacute;nh s&aacute;ch bảo mật v&agrave; mọi thay đổi sẽ được c&ocirc;ng khai tr&ecirc;n website Ecogreen.com.vn</li>
+                         <li>Tất cả c&aacute;c thay đổi về ch&iacute;nh s&aacute;ch bảo mật ch&uacute;ng t&ocirc;i đều tu&acirc;n thủ theo quy định của Ph&aacute;p Luật Nh&agrave; Nước hiện h&agrave;nh.</li>
+                         <li>Mọi &yacute; kiến thắc mắc, khiếu nại v&agrave; tranh chấp vui l&ograve;ng li&ecirc;n hệ với ch&uacute;ng t&ocirc;i qua hotline:&nbsp;<strong>(028) 38 115118</strong></li>
+                     </ul>  '
+                 ]);
 
 
         

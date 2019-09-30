@@ -17,6 +17,7 @@ class ShippingfreeCommitmentTable extends Migration
         Schema::create('shipping',function (Blueprint $table)
         {
             $table->bigIncrements('id');
+           
             $table->text('content');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
@@ -25,6 +26,7 @@ class ShippingfreeCommitmentTable extends Migration
         Schema::create('commitment',function (Blueprint $table)
         {
             $table->bigIncrements('id');
+            
             $table->text('content');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
