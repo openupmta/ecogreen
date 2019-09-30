@@ -60,7 +60,7 @@
                                                value="{{ $cate->title }}">
                                     </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="exampleInputFile">Hình ảnh </label>
                                     <input type="file" id="image" name="image" onchange="showIMG()">
                                 </div>
@@ -70,7 +70,7 @@
                                     <div id="viewImg">
                                         <img src="images/{{ $cate->image }}" width="100$" >
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary">Sửa</button>
                                 </div>

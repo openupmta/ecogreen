@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class advisory extends Model
 {
     protected $table="advisory";
-    public function cateanswers()
-    {
-        return $this->hasOne('App\models\answer', 'advisory_id', 'id');
-    }
+   public function cate()
+   {
+       return $this->belongsTo('App\models\catequestion', 'advisory_id', 'id');
+   }
+    
 }

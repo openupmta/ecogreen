@@ -97,10 +97,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{route('chu-de-suc-khoe')}}">Chủ đề sức khỏe <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px"></i></a>
+                        <a class="nav-link " href="chu-de-suc-khoe.html">Chủ đề sức khỏe <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px"></i></a>
                         <ul class="sub-menu ">
                             @foreach ($catehealth as $item)
-                                 <li><a href=""style="font-size: 18px" >{{ $item->name }}</a></li>
+                                 <li><a href="health/{{ $item->slug }}.html"style="font-size: 18px" >{{ $item->name }}</a></li>
                             @endforeach
                            
                            

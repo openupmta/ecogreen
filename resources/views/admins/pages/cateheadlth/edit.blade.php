@@ -1,26 +1,21 @@
 @extends('admins.layouts.master')
 @section('tuvan','active')
 @section('title')
-    Thêm chủ đề câu hỏi
+    Sửa chủ đề sức khoẻ
 @endsection
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                    Thêm chủ đề câu hỏi
+                Sửa chủ đề sức khoẻ
             </h1>
             <ol class="breadcrumb">
                 <li><a href="admin"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Thêm chủ đề câu hỏi</li>
+                <li class="active"> Sửa chủ đề sức khoẻ</li>
             </ol>
         </section>
         <br>
         <div>
-            {{--  @if ($errors->('name'))
-                <div class="alert alert-danger" role="alert">
-                    <strong>{{ $errors->first('name') }}</strong>
-                </div>
-            @endif  --}}
             @if(count($errors) > 0)
                 <div class="alert alert-danger">
                     @foreach($errors->all() as $err)
@@ -54,30 +49,14 @@
                         <form role="form" method="POST"
                               enctype="multipart/form-data">
                             @csrf
-
-                            
                             <div class="box-body">
-
-
                                  <div class="form-group">
-                                        <label for="exampleInputEmail1">Chủ đề câu hỏi (*)</label>
+                                        <label for="exampleInputEmail1">Chủ đề sức khoẻ (*)</label>
                                         <input type="text" class="form-control"  name="title"
-                                            >
+                                               value="{{ $cate->name }}">
                                     </div>
-
-                                {{-- <div class="form-group">
-                                    <label for="exampleInputFile">Hình ảnh </label>
-                                    <input type="file" id="image" name="image" onchange="showIMG()">
-                                </div>
-                                 
-                                <div class="form-group">
-                                    <label for="" style="margin-left: 10px">Ảnh hiển thị : </label>
-                                    <div id="viewImg">
-                                        <img src="" width="100$" >
-                                    </div>
-                                </div> --}}
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Thêm</button>
+                                    <button type="submit" class="btn btn-primary">Sửa</button>
                                 </div>
 
                             </div>

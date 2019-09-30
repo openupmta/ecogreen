@@ -47,7 +47,7 @@ Danh sách chủ đề câu hỏi
                                 <thead>
                                     <tr>
                                         <th>Chủ đề câu hỏi</th>
-                                        <th>Ảnh</th>
+                                        
                                         <th class="col-md-2">Hành động</th>
 
                                     </tr>
@@ -56,7 +56,7 @@ Danh sách chủ đề câu hỏi
                                     @foreach ($cate as $item)
                                     <tr>
                                         <td>{{ $item->title }}</td>
-                                        <td><img width="100px" src="images/{{ $item->image }}" alt=""></td>
+                                       
 
                                         <td>
                                             <a class="btn btn-danger"

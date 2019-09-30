@@ -28,6 +28,7 @@ class Health extends Migration
             $table->string('slug');
             $table->string('image');
             $table->text('summary');
+            $table->text('content');
             $table->bigInteger('cate_id')->unsigned();
             $table->foreign('cate_id')
                 ->references('id')

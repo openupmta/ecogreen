@@ -57,7 +57,7 @@
                 <ul class="treeview-menu">
                     <li><a href="admin/promotion"><i class="fa fa-circle-o"></i> Khuyến mại</a></li>
                     <li><a href="admin/expert"><i class="fa fa-circle-o"></i> Chuyên gia </a></li>
-                    <li><a href="admin/catepromotion"><i class="fa fa-circle-o"></i> Đăng kí thành viên </a></li>
+                    {{-- <li><a href="admin/catepromotion"><i class="fa fa-circle-o"></i> Đăng kí thành viên </a></li> --}}
 
                 </ul>
             </li>
@@ -72,12 +72,29 @@
                 </span>
                     </a>
                     <ul class="treeview-menu">
+                        <li><a href="admin/question/frequent"><i class="fa fa-circle-o"></i>Chủ đề câu hỏi</a></li>
                         <li><a href="admin/question"><i class="fa fa-circle-o"></i>Danh sách câu hỏi</a></li>
-                        <li><a href="admin/question/frequent"><i class="fa fa-circle-o"></i>Danh sách chủ đề câu hỏi</a></li>
-                        <li><a href="admin/question/frequents"><i class="fa fa-circle-o"></i>Danh sách câu hỏi thường gặp</a></li>
+                    
+                
     
                     </ul>
                 </li>
+
+                <li class="@yield('suckhoe') treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i>
+                        <span>Chủ đề sức khỏe</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="admin/headlth"><i class="fa fa-circle-o"></i>Chủ đề sức khoẻ</a></li>
+                        <li><a href="admin/headlths"><i class="fa fa-circle-o"></i>Danh sách chủ đề</a></li>
+                    </ul>
+                </li>
+
+
 
 
             <li class="treeview">

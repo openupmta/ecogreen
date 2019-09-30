@@ -22,7 +22,6 @@ class FrequentController extends Controller
 
     function GetAdd()
     {
-        
         return view('admins.pages.questions.add');
     }
 
@@ -30,12 +29,11 @@ class FrequentController extends Controller
     {
         $this->validate($request,
         [
-            'image' => 'required|image',
+           
             'title' => 'required',  
         ],
         [
-            'image.required' => 'Ảnh không được để trống !',
-            'image.image' => 'Ảnh sai định dạng !',
+          
             'title.required' => 'Chủ đề câu hỏi không được để trống !',
            
         ]);
@@ -43,21 +41,9 @@ class FrequentController extends Controller
         
             $cate=new catequestion;
             $cate->title = $request->title;
-            $cate->slug = str_slug($request->title);
-            if($request->hasFile('image'))
-            {
-               $file=$request->image;
-               $file_name=str_slug($request->image).'.'.$file->getClientOriginalExtension();
-               $file->move('images',$file_name);
-               $cate->image=$file_name ;
-            }           
+            $cate->slug = str_slug($request->title);         
             $cate->save();
             return redirect('admin/question/frequent')->with('thongbao','Thêm chủ đề thành công');
-
-
-
-
-
     }
 
 
@@ -75,30 +61,19 @@ class FrequentController extends Controller
      
         $this->validate($request,
         [
-            'image' => 'image',
+           
             'title' => 'required',  
         ],
         [
            
-            'image.image' => 'Ảnh sai định dạng !',
+           
             'title.required' => 'Chủ đề câu hỏi không được để trống !',
            
         ]);
 
         $cate=catequestion::find($id);
         $cate->title = $request->title;
-
-        if($request->hasFile('image'))
-        {
-                if(file_exists('images/'.$cate->image))
-                {
-                    unlink('images/'.$cate->image);
-                }
-                 $file=$request->image;
-                 $file_name=str_slug($request->image).'.'.$file->getClientOriginalExtension();
-                 $file->move('images',$file_name);
-                 $cate->image=$file_name ;   
-        }
+        $cate->slug = str_slug($request->title);
         $cate->save();
         return redirect('admin/question/frequent')->with('thongbao','Sửa thành công !');
 
@@ -111,95 +86,122 @@ class FrequentController extends Controller
 
 
 //danh sách câu hỏi thường gặp
-    function GetListFrequent()
-    {
-        $data['questions']=question::orderby('id','DESC')->get();
-        return view('admins.pages.frequent.list',$data);
-    }
-    function DeleteFrequent($id)
-    {
-        question::destroy($id);
-        return redirect('admin/question/frequents')->with('thongbao','Xoá thành công !');
+//     function GetListFrequent()
+//     {
+//         $data['questions']=question::orderby('id','DESC')->get();
+//         return view('admins.pages.frequent.list',$data);
+//     }
+//     function DeleteFrequent($id)
+//     {
+//         question::destroy($id);
+//         return redirect('admin/question/frequents')->with('thongbao','Xoá thành công !');
 
-    }
-
-
-//thêm câu hỏi
-        function GetAddFrequent()
-        {
-            $data['catequestions']=catequestion::all();
-            return view('admins.pages.frequent.add',$data);   
-        }
+//     }
 
 
-        function PostAddFrequent(request $request)
-        {
+// //thêm câu hỏi
+//         function GetAddFrequent()
+//         {
+//             $data['catequestions']=catequestion::all();
+//             return view('admins.pages.frequent.add',$data);   
+//         }
+
+
+//         function PostAddFrequent(request $request)
+//         {
             
-            $this->validate($request,
-            [
-                'parent'=>'required',
-                'title' => 'required',  
-            ],
-            [  
-                'parent.required' => 'Bạn chưa chọn chủ đề câu hỏi !',
-                'title.required' => 'Câu hỏi không được để trống !',
-            ]); 
+//             $this->validate($request,
+//             [
+//                 'parent'=>'required',
+//                 'title' => 'required', 
+//                 'image' => 'image', 
+//             ],
+//             [  
+//                 'parent.required' => 'Bạn chưa chọn chủ đề câu hỏi !',
+//                 'title.required' => 'Câu hỏi không được để trống !',
+//                 'image.image' => 'Ảnh không đúng định dạng !',
+//             ]); 
             
-            $questions=new question;
-            $questions->title = $request->title;
-            $questions->slug = str_slug($questions->title);
-                if($request->parent==0){
-                    return redirect()->back()->with('thongbao1','Bạn chưa chọn chủ để câu hỏi !')->withInput();
-                }
-                else{
-                    $questions->cate_id = $request->parent;
-                }
+//             $questions=new question;
+//             $questions->title = $request->title;
+//             $questions->slug = str_slug($questions->title);
+
+//             if($request->hasFile('image'))
+//             { 
+//                $file=$request->image;
+//                $file_name=str_slug($request->image).'.'.$file->getClientOriginalExtension();
+//                $file->move('images',$file_name);
+//                $questions->image=$file_name ;
+//             }  
+
+
+//                 if($request->parent==0){
+//                     return redirect()->back()->with('thongbao1','Bạn chưa chọn chủ để câu hỏi !')->withInput();
+//                 }
+//                 else{
+//                     $questions->cate_id = $request->parent;
+//                 }
             
 
-            $questions->save();
-            return redirect('admin/question/frequents')->with('thongbao','Thêm câu hỏi thành công !');
+//             $questions->save();
+//             return redirect('admin/question/frequents')->with('thongbao','Thêm câu hỏi thành công !');
 
 
 
-        }
-
-
-
-
-
-
-    function GetEditFrequent($id)
-    {
-        $data['catequestions']=catequestion::all();
-            $data['question']=question::find($id);
-            return view('admins.pages.frequent.edit',$data);
-    }
-
-    function PostEditFrequent(request $request ,$id)
-    {
-        $this->validate($request,
-        [
-            'title' => 'required',  
-        ],
-        [  
-            'title.required' => 'Chủ đề câu hỏi không được để trống !',
-        ]);
+//         }
 
 
 
 
-            $questions=question::find($id);
-            $questions->title = $request->title;
-            $questions->slug = str_slug($request->title);
-            if($request->parent==0){
-                return redirect()->back()->with('thongbao1','Bạn chưa chọn chủ để câu hỏi !')->withInput();
-            }
-            else{
-                $questions->cate_id = $request->parent;
-            }
-            $questions->save();
-            return redirect('admin/question/frequents')->with('thongbao','Sửa thành công !');
-    }
+
+
+//     function GetEditFrequent($id)
+//     {
+//         $data['catequestions']=catequestion::all();
+//             $data['question']=question::find($id);
+//             return view('admins.pages.frequent.edit',$data);
+//     }
+
+//     function PostEditFrequent(request $request ,$id)
+//     {
+//         $this->validate($request,
+//         [
+//             'title' => 'required',  
+//             'image' => 'image'
+//         ],
+//         [  
+//             'title.required' => 'Chủ đề câu hỏi không được để trống !',
+//             'image.image' => 'Ảnh không đúng định dạng !',
+//         ]);
+
+
+
+
+//             $questions=question::find($id);
+//             $questions->title = $request->title;
+//             $questions->slug = str_slug($request->title);
+//             if($request->hasFile('image'))
+//                     {
+//                             if(file_exists('images/'.$questions->image))
+//                             {
+//                                 unlink('images/'.$questions->image);
+//                             }
+//                             $file=$request->image;
+//                             $file_name=str_slug($request->image).'.'.$file->getClientOriginalExtension();
+//                             $file->move('images',$file_name);
+//                             $questions->image=$file_name ;   
+//                     }
+
+
+//             if($request->parent==0){
+//                 return redirect()->back()->with('thongbao1','Bạn chưa chọn chủ để câu hỏi !')->withInput();
+//             }
+//             else{
+//                 $questions->cate_id = $request->parent;
+//             }
+//             $questions->save();
+//             return redirect('admin/question/frequents')->with('thongbao','Sửa thành công !');
+//     }
 
 
 }

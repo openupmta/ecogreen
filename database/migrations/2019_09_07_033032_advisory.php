@@ -19,7 +19,6 @@ class Advisory extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('slug');
-            $table->string('image');
             $table->timestamps();
             
         });
@@ -29,11 +28,13 @@ class Advisory extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('slug');
+             $table->string('image')->nullable();
             $table->bigInteger('cate_id')->unsigned();
             $table->foreign('cate_id')
                     ->references('id')
                     ->on('catequestions')
                     ->onDelete('cascade');
+           
             $table->timestamps();
             
         });
@@ -47,22 +48,31 @@ class Advisory extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('question');
+            $table->text('answer');
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('image')->nullable();
             $table->tinyInteger('status')->default(1);
-            $table->timestamps();
-        });
-
-
-        Schema::create('answer',function (Blueprint $table)
-        {
-            $table->bigIncrements('id');
-            $table->text('answer')->nullable();
             $table->bigInteger('advisory_id')->unsigned();
             $table->foreign('advisory_id')
-                    ->references('id')
-                    ->on('advisory')
-                    ->onDelete('cascade');
+                        ->references('id')
+                        ->on('catequestions')
+                        ->onDelete('cascade');
             $table->timestamps();
         });
+
+
+        // Schema::create('answer',function (Blueprint $table)
+        // {
+        //     $table->bigIncrements('id');
+        //     $table->text('answer')->nullable();
+        //     $table->bigInteger('advisory_id')->unsigned();
+        //     $table->foreign('advisory_id')
+        //             ->references('id')
+        //             ->on('advisory')
+        //             ->onDelete('cascade');
+        //     $table->timestamps();
+        // });
     }
 
     /**

@@ -70,48 +70,36 @@ Tư vấn sức khỏe
                 </form>
                 <p></p>
                 {{-- <b style="color: blue">Gửi câu hỏi của bạn</b> --}}
+                <script>
+                    function readMoretuvan(id) {
+                        var show = document.getElementById('more'+id);
+                        var button_show = document.getElementById('myBtn_'+id);
+                        if(show.style.height == '0px'){
+                            show.style.height = 'auto';
+                            button_show.innerHTML = 'Rút gọn';
+                        }else{
+                            show.style.height = '0px';
+                            button_show.innerHTML = 'Xem thêm';
+                        }
+                        
+                    }
+                </script>
                 <P>
+                        
                     @foreach ($advisory as $key => $item)
 
-                    {{-- <div style="display: inline;"><a href="#" title=""> --}}
+                    <div style="display: inline;"><a href="#" title="">
                             {{ $item->question }}</a>
-                        {{-- <span id="dots{{ $key }}">...</span>
-                        <div id="more{{ $key }}" style="display:none;"> --}}
-                            {{ $item->status }}
-                            {{-- @foreach ($answer as $row)
-                            @if ($item->id == $row->advisory_id)
-                            {{ $row->answer }}
-                            @endif
-                            @endforeach --}}
-
-{{-- 
+                        <span id="dots{{ $item->id }}">...</span>
+                        <div id="more{{ $item->id }}" style="height:0px;transition: 2s all;overflow: hidden" class="more_content_a">
+                            {{ $item->answer }}
                         </div>
+                        <button style="display: inline;" onclick="readMoretuvan({{ $item->id }})" id="myBtn_{{ $item->id }}">Xem thêm</button>
                     </div>
                 </p>
-                <button style="display: inline;" onclick="myFunctionReadMore()" id="myBtn">Đọc tiếp</button> --}}
-
-
                 <p><a href="#" title=""></a></p>
                 @endforeach
-
-                <script>
-                    function myFunctionReadMore() {
-                        var dots = document.getElementById("dots");
-                        var moreText = document.getElementById("more");
-                        var btnText = document.getElementById("myBtn");
-
-                        if (dots.style.display === "none") {
-                            dots.style.display = "inline";
-                            btnText.innerHTML = "Đọc tiếp";
-                            moreText.style.display = "none";
-                        } else {
-                            dots.style.display = "none";
-                            btnText.innerHTML = "Rút gọn";
-                            moreText.style.display = "inline";
-                        }
-                    }
-
-                </script>
+                {{ $advisory->links() }}
                 
             </div>
 

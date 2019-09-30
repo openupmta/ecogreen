@@ -35,20 +35,22 @@ Câu hỏi thường gặp
 
                 <div class="row">
 
-                    @foreach ($catequestion as $item)
-
-                    <div class="col-md-6 km-ct">
-
-                        <img class="person-sk" src="images/{{ $item->image }}" alt="">
-                        <a class="ab-img" href="">{{ $item->title }}</a>
-                        @foreach ($item->question as $key => $row)
-                        @if($key==0)
-                        <a class="title-sk" href=""> {{ $row->title }}</a>
-                        @else
-                        <a class="text-sk" href="">{{ $row->title }}</a>
-                        @endif
-                        @endforeach
-                    </div>
+                    @foreach ($catequestion as $key => $item)
+                        <div class="col-md-6 km-ct">
+                            @foreach ($item->advisorys as $key => $value)
+                                @if($key==0)
+                                    <a href="detail/{{ $value->slug }}.html"><img class="person-sk" src="images/{{ $value->image }}" alt=""></a>
+                                @endif
+                            @endforeach
+                                    <a class="ab-img" href="{{ $item->slug }}.html">{{ $item->title }}</a>
+                            @foreach ($item->advisorys as $key => $row)
+                                @if($key==0)
+                                    <a class="title-sk" href="detail/{{ $row->slug }}.html"> {{ $row->title }}</a>
+                                    @else
+                                    <a class="text-sk" href="detail/{{ $row->slug }}.html">{{ $row->title }}</a>
+                                @endif
+                            @endforeach
+                        </div>
                     @endforeach
 
                 </div>

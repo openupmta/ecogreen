@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class catequestion extends Model
 {
     protected $table="catequestions";
-    public function question()
+    public function advisorys()
     {
-        return $this->hasMany('App\models\question', 'cate_id', 'id');
+        return $this->hasMany('App\models\advisory', 'advisory_id', 'id');
     }
 }

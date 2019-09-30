@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\client;
-use App\models\{advisory,answer,catequestion};
+use App\models\{advisory,catequestion};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,7 +10,7 @@ class AdvisoryController extends Controller
     function GetAdvisory()
     {
         $data['advisory']=advisory::orderby('id','DESC')->paginate(10);
-        $data['answer']=answer::all();
+        // $data['answer']=answer::all();
         return view('pages.tuvan-suckhoe',$data);
     }
 
@@ -34,6 +34,7 @@ class AdvisoryController extends Controller
         $advisory->name = $request->name;
         $advisory->email = $request->email;
         $advisory->question = $request->question;
+        $advisory->answer ='Câu hỏi chưa được trả lời!';
         $advisory->save();
         return redirect()->back()->with('thongbao','Gửi câu hỏi thành công !')->withInput();
 

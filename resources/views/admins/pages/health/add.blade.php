@@ -1,17 +1,17 @@
 @extends('admins.layouts.master')
-@section('tuvan','active')
+@section('suckhoe','active')
 @section('title')
-Thêm câu hỏi
+Thêm chủ đề sức khoẻ
 @endsection
 @section('content')
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Thêm câu hỏi
+            Thêm chủ đề sức khoẻ
         </h1>
         <ol class="breadcrumb">
             <li><a href="admin"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Thêm câu hỏi</li>
+            <li class="active">Thêm chủ đề sức khoẻ</li>
         </ol>
     </section>
     <br>
@@ -24,11 +24,6 @@ Thêm câu hỏi
 
         </div>
 
-        @endif
-        @if(session('thongbao'))
-        <div class="alert alert-success">
-            {{session('thongbao')}}
-        </div>
         @endif
         @if(session('thongbao1'))
         <div class="alert alert-danger">
@@ -51,25 +46,57 @@ Thêm câu hỏi
             <div class="col-md-12">
                 <div class="box box-primary">
                     {{-- <h3 style="text-align: left; padding-left: 5px" >Sửa</h3> --}}
-                    <form role="form" method="POST" enctype="multipart/form-data">
+                    <form role="form" method="POST" enctype="multipart/form-data" >
                         @csrf
                         <div class="box-body">
+                            <p> <label>Chủ đề sức khỏe :</label>
 
-                            <div class="form-group">
-                                <label for="">Chủ đề câu hỏi (*)</label>
                                 <select class="form-control" name="parent" id="">
                                     <option value="0">----ROOT----</option>
-                                    @foreach ($catequestions as $item)
+                                    @foreach ($cate as $item)
                                     <option value="{{ $item->id }}">
-                                        {{ $item->title }}<br>
+                                        {{ $item->name }}
                                     </option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </p>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Câu hỏi (*)</label>
-                                <input type="text" class="form-control" value="{{ old('title') }}"  name="title">
+                                <label for="exampleInputEmail1">Tiêu đề</label>
+                                <input type="text" class="form-control" name="title">
                             </div>
+                            <label>Tóm tắt :</label>
+                            <p><br>
+                                {{-- <input type="hidden" name="id" value="{{ $healths->id }}"> --}}
+                                <textarea class="form-control" name="summary" style="width: 100%;
+                                                height: 100px;
+                                                background: #fff;
+                                                margin-bottom: 10px;
+                                                border: 1px solid #ccc;"></textarea></p>
+
+                            <label>Nội dung :</label>
+                            <p><br>
+                                {{-- <input type="hidden" name="name" value="{{ $healths->id }}"> --}}
+                                <textarea class="form-control" name="names" style="width: 100%;
+                                                height: 300px;
+                                                background: #fff;
+                                                margin-bottom: 10px;
+                                                border: 1px solid #ccc;"></textarea></p>
+
+
+                            <div class="form-group">
+                                <label for="exampleInputFile">Hình ảnh </label>
+                                <input type="file" id="image" name="image" onchange="showIMG()">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" style="margin-left: 10px">Ảnh hiển thị : </label>
+                                <div id="viewImg">
+                                    <img src="" width="100$">
+                                </div>
+                            </div>
+
+
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary">Thêm</button>
                             </div>

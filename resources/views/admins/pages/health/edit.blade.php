@@ -1,7 +1,7 @@
 @extends('admins.layouts.master')
-@section('tuvan','active')
+@section('suckhoe','active')
 @section('title')
-Trả lời câu hỏi
+Sửa chủ đề
 @endsection
 
 @section('content')
@@ -22,61 +22,70 @@ Trả lời câu hỏi
                     Câu hỏi
             </h1> --}}
             <ol class="breadcrumb">
-
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Trả lời câu hỏi</li>
+                <li class="active">Sửa chủ đề</li>
             </ol>
         </section>
         <section class="content">
             <div class="row">
                 <div class="col-md-12 km-right">
-
-
-
-                    @if(session('thongbao1'))
-                    <script>
-                        alert('{{session('
-                            thongbao1 ')}}');
-
-                    </script>
+                    </b>
+                    @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $err)
+                        {{$err}}<br>
+                        @endforeach
+            
+                    </div>
+            
                     @endif
+                    @if(session('thongbao'))
 
-
-
+                    <script>
+                    alert('{{session('thongbao')}}')
+                    </script>
+                    
+                    @endif
 
                     <form method="POST" enctype="multipart/form-data">
                         @csrf
 
-
-                        <p><br>
-                            <label>Câu hỏi :</label>
-                            {{ $advisory->question }}
-
-
-                        </p>
-                        <div>
-                            @if(count($errors) > 0)
-                            <div class="alert alert-danger">
-                                @foreach($errors->all() as $err)
-                                {{$err}}<br>
-                                @endforeach
-
-                            </div>
-
-                            @endif
-                        </div>
-                        <p> <label>Chủ đề câu hỏi :</label>
+                        <p> <label>Chủ đề sức khoẻ :</label>
 
                             <select class="form-control" name="parent" id="">
-                                <option value="0">----ROOT----</option>
-                                @foreach ($catequestions as $item)
+                                <option value="{{ $healths->cate_id }}">{{ $healths->catehealths->name }}</option>
+                                @foreach ($cate as $item)
                                 <option value="{{ $item->id }}">
-                                    {{ $item->title }}
+                                    {{ $item->name }}
                                 </option>
                                 @endforeach
 
                             </select>
                         </p>
+
+
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Tiêu đề</label>
+                                <input type="text" class="form-control" name="title" value="{{ $healths->title }}">
+                        </div>
+
+                        <label>Tóm tắt :</label>
+                        <p><br>
+                            {{-- <input type="hidden" name="id" value="{{ $healths->id }}"> --}}
+                            <textarea class="form-control" name="summary" style="width: 100%;
+                                    height: 100px;
+                                    background: #fff;
+                                    margin-bottom: 10px;
+                                    border: 1px solid #ccc;">{{ $healths->summary }}</textarea></p>
+
+                        <label>Nội dung :</label>
+                        <p><br>
+                            {{-- <input type="hidden" name="name" value="{{ $healths->id }}"> --}}
+                            <textarea class="form-control" name="name" style="width: 100%;
+                                    height: 300px;
+                                    background: #fff;
+                                    margin-bottom: 10px;
+                                    border: 1px solid #ccc;">{{ $healths->content }}</textarea></p>
 
 
                         <div class="form-group">
@@ -87,27 +96,10 @@ Trả lời câu hỏi
                         <div class="form-group">
                             <label for="" style="margin-left: 10px">Ảnh hiển thị : </label>
                             <div id="viewImg">
-                                <img src="" width="100$">
+                                <img src="images/{{ $healths->image }}" width="100$">
                             </div>
                         </div>
-
-
-                        <div class="form-group">
-                            <label for="" style="margin-left: 10px">Tiêu đề câu hỏi :</label>
-                            <input type="text" class="form-control" name="title">
-                        </div>
-
-
-
-                        <label>Câu trả lời :</label>
-                        <p><br>
-                            <input type="hidden" name="id" value="{{ $advisory->id }}">
-                            <textarea class="form-control" name="answer" style="width: 100%;
-                                    height: 300px;
-                                    background: #fff;
-                                    margin-bottom: 10px;
-                                    border: 1px solid #ccc;"></textarea></p>
-                        <button style="align:right" type="submit" class="btn-danger btn">Trả lời</button>
+                        <button style="align:right" type="submit" class="btn-danger btn">Sửa</button>
 
                     </form>
                 </div>

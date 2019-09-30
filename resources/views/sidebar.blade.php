@@ -40,7 +40,7 @@
                         <h2 class="title-dk">đăng ký thành viên</h2>
                         <p class="text-dk">Để nhận được ưu đãi đặc biệtvà bản tin sức khỏe hữu ích</p>
                         <input type="text" placeholder="Nhập địa chỉ Emai"><br>
-                        <a class="bt-dky" href="">đăng ký</a>
+                        <a class="bt-dky" href="">Đăng ký</a>
                     </div>
                 </div>
             </div>

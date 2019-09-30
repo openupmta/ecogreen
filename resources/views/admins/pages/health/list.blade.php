@@ -1,7 +1,7 @@
 @extends('admins.layouts.master')
-@section('tuvan','active')
+@section('suckhoe','active')
 @section('title')
-Danh sách  câu hỏi thường gặp
+Danh sách chủ đề
 @endsection
 
 @section('content')
@@ -15,28 +15,28 @@ Danh sách  câu hỏi thường gặp
             }
 
         </style>
-
+        
 
         <section class="content-header">
             <h1>
-                Danh sách câu hỏi thường gặp
+                    Danh sách chủ đề
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Danh sách câu hỏi thường gặp</li>
+                <li class="active">Danh sách câu hỏi</li>
             </ol>
         </section>
         <section class="content">
-            @if(session('thongbao'))
-            <div class="alert alert-success">
-                {{session('thongbao')}}
-            </div>
-            @endif
+                @if(session('thongbao'))
+                <div class="alert alert-success">
+                    {{session('thongbao')}}
+                </div>
+                @endif
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <a href="admin/question/frequents/add" class="btn btn-success">Thêm câu hỏi</a>
+                            <a href="admin/headlths/add" class="btn btn-success">Thêm</a>
                         </div>
                         <div class="box-header">
 
@@ -46,29 +46,30 @@ Danh sách  câu hỏi thường gặp
                             <table id="example1" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Chủ đề câu hỏi</th>
-                                        <th>Câu hỏi thường gặp</th>
-                                       
-                                        <th class="col-md-2">Hành động</th>
+                                        <th>Chủ đề</th>
+                                        <th>Tiêu đề</th>
+                                        <th>Tóm tắt</th>
+                                        <th>Nội dung</th>
+                                        <th>Ảnh</th>
+                                        <th>Hành động</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($questions as $item)
+                                    @foreach ($healths as $item)
                                     <tr>
-                                        <td>{{ $item->question->title }}</td>
-                                        <td>{{ $item->title }}</td>
-                                        
-
-                                        <td>
-                                            <a class="btn btn-danger"
-                                                href="admin/question/frequents/delete/{{ $item->id }}"
-                                                onclick="return confirm('Hành động sẽ xóa câu hỏi này! bạn có muốn tiếp tục?')">Xóa</a>
-                                            <a class="btn btn-default" id="show"
-                                                href="admin/question/frequents/edit/{{ $item->id }}"
-                                                onclick="edit()"><i
-                                                    class="fas fa-pencil-ruler"></i>Sửa</a>
-                                        </td>
+                                
+                                    <td>{{$item->catehealths->name}}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td>{!!$item->summary!!}</td>
+                                    <td>{!!$item->content!!}</td>
+                                    <td><img width="100px" src="images/{{ $item->image }}"></td>
+                                    
+                                    <td>
+                                        <a class="btn btn-info" href="{{ url('admin/headlths/edit/'.$item->id) }}">Sửa</a>
+                                        <a class="btn btn-danger" href="{{ url('admin/headlths/delete/'.$item->id) }}"
+                                            onclick="return confirm('Hành động sẽ xóa câu hỏi này! bạn có muốn tiếp tục?')">Xóa</a>
+                                    </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
