@@ -17,7 +17,7 @@
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<div class="overlay-content">
 							<a href="#">Trang Chủ</a>
-							<a href="{{route('gioi-thieu')}}">Giới Thiệu</a>
+							<a href="{{route('gioithieu')}}">Giới Thiệu</a>
 							<a class="blog" href="javascript:void(0)">Sản Phẩm
 								<div class="blog-item text-center">
 									<ul class="abc">
@@ -71,7 +71,7 @@
 					<a class="nav-link" href="">Trang chủ</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{{route('gioi-thieu')}}">Giới thiệu</a>
+					<a class="nav-link" href="{{route('gioithieu')}}">Giới thiệu</a>
 				</li>
 				<li class="nav-item ">
 					<a class="nav-link" href="{{route('san-pham')}}">Sản phẩm <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 14px"></i></a>

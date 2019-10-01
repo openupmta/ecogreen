@@ -16,9 +16,6 @@
 Route::get('/', function () {
     return view('pages.index');
 })->name('trang-chu');
-Route::get('/gioi-thieu', function () {
-    return view('pages.gioithieu');
-})->name('gioi-thieu');
 Route::get('/tu-van-suc-khoe.html','client\AdvisoryController@GetAdvisory')->name('tu-van-suc-khoe');
 Route::post('/tu-van-suc-khoe.html','client\AdvisoryController@PostAdvisory');
 Route::get('/san-pham', function () {
@@ -56,7 +53,13 @@ Route::get('/chi-tiet-san-pham-1', function () {
 Route::get('/chi-tiet-san-pham-2', function () {
     return view('pages.chitiet-sanpham-2');
 });
-
+// Route::get('/gioi-thieu', function () {
+//     return view('pages.gioithieu');
+// })->name('gioi-thieu');
+Route::get('/gioithieu',[
+    'as'=>'gioithieu',
+    'uses'=>'IntroduceController@ShowIntro'
+]);
 
 Route::get('login','admins\LoginController@GetLogin')->middleware('CheckLogout');
 Route::post('login','admins\LoginController@PostLogin');

@@ -17,7 +17,6 @@ class IntroduceController extends Controller
         $data=IntroduceModel::get();
         return view('admins.pages.form.IntroduceView',['data'=>$data]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -123,7 +122,10 @@ class IntroduceController extends Controller
 
     }
     
-
+    public function ShowIntro(){
+        $data=IntroduceModel::get();
+        return view('pages.gioithieu',['data'=>$data]);
+    }
     /**
      * Remove the specified resource from storage.
      *
