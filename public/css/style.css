@@ -370,3 +370,7 @@ img{
 a{
   text-decoration: none !important;
 }
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+  color: #fff;
+  background-color: #8BC53F;
+}

@@ -21,7 +21,7 @@ class Product extends Migration
             $table->string('slug')->unique();
             //Hiển thị cate product
             $table->tinyInteger('status')->default(1);
-
+            $table->timestamps();
         });
         //Sản phẩm
         Schema::create('products', function (Blueprint $table) {
@@ -42,23 +42,12 @@ class Product extends Migration
                 ->references('id')
                 ->on('cate_products')
                 ->onDelete('cascade');
+            $table->string('image');    
             $table->tinyInteger('status')->default(1);
 
             $table->timestamps();
         });
-        Schema::create('image', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('image');
-            $table->bigInteger('product_id')->unsigned();
-            $table->foreign('product_id')
-                ->references('id')
-                ->on('products')
-                ->onDelete('cascade');
-            $table->tinyInteger('status')->default(1);
-
-            $table->timestamps();
-
-        });
+    
 
         Schema::create('ratings', function (Blueprint $table) {
             $table->bigInteger('product_id')->unsigned();

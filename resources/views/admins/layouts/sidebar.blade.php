@@ -87,8 +87,50 @@
                         <li><a href="admin/introduce"><i class="fa fa-circle-o"></i>danh sách giơi thiệu</a></li>
                     </ul>
                 </li>
-
-
+                <li class="@yield('tuvan') treeview">
+                    <a href="#">
+                        <i class="fa fa-fw fa-motorcycle"></i>
+                        <span>Giao hàng thanh toán</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('addshipping')}}"><i class="fa fa-circle-o"></i>Thêm</a></li>
+                        <li><a href="{{route('danhsachshipping')}}"><i class="fa fa-circle-o"></i>Danh sách</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="@yield('tuvan') treeview">
+                    <a href="#">
+                        <i class="fa fa-fw fa-calendar-check-o"></i>
+                        <span>Cam kết khách hàng</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('addcommitment')}}"><i class="fa fa-circle-o"></i>Thêm</a></li>
+                        <li><a href="{{route('danhsachcommitment')}}"><i class="fa fa-circle-o"></i>Danh sách</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="@yield('tuvan') treeview">
+                    <a href="#">
+                        <i class="fa fa-fw fa-industry"></i>
+                        <span>Sản phẩm</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('addcateproducts')}}"><i class="fa fa-circle-o"></i>Thêm thể loại sản phẩm</a></li>
+                        <li><a href="{{route('danhsachcateproducts')}}"><i class="fa fa-circle-o"></i>Danh sách thể loại sản phẩm</a></li>
+                        <li><a href="{{route('addproducts')}}"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
+                        <li><a href="{{route('danhsachproducts')}}"><i class="fa fa-circle-o"></i>Danh sách sản phẩm</a></li>
+                       
+                    </ul>
+                </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
