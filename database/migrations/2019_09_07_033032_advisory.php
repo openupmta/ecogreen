@@ -14,20 +14,33 @@ class Advisory extends Migration
     public function up()
     {
         //Câu hỏi thường gặp
+        Schema::create('catequestions',function (Blueprint $table)
+        {
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('slug');
+            $table->timestamps();
+            
+        });
+
         Schema::create('questions',function (Blueprint $table)
         {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');
             $table->string('slug');
-            $table->string('image');
-            $table->text('summary');
-            $table->text('content');
-            $table->tinyInteger('status')->default(1);
-            $table->timestamps();
+             $table->string('image')->nullable();
+            $table->bigInteger('cate_id')->unsigned();
+            $table->foreign('cate_id')
+                    ->references('id')
+                    ->on('catequestions')
+                    ->onDelete('cascade');
            
-
-
+            $table->timestamps();
+            
         });
+
+
+
         //Hỏi đáp và tư vấn
         Schema::create('advisory',function (Blueprint $table)
         {
@@ -35,23 +48,31 @@ class Advisory extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('question');
-            $table->tinyInteger('status')->default(1);
-            $table->text('answer')->nullable();
-            $table->timestamps();
-        });
-
-
-        Schema::create('answer',function (Blueprint $table)
-        {
-            $table->bigIncrements('id');
             $table->text('answer');
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('image')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->bigInteger('advisory_id')->unsigned();
             $table->foreign('advisory_id')
-                    ->references('id')
-                    ->on('advisory')
-                    ->onDelete('cascade');
+                        ->references('id')
+                        ->on('catequestions')
+                        ->onDelete('cascade');
             $table->timestamps();
         });
+
+
+        // Schema::create('answer',function (Blueprint $table)
+        // {
+        //     $table->bigIncrements('id');
+        //     $table->text('answer')->nullable();
+        //     $table->bigInteger('advisory_id')->unsigned();
+        //     $table->foreign('advisory_id')
+        //             ->references('id')
+        //             ->on('advisory')
+        //             ->onDelete('cascade');
+        //     $table->timestamps();
+        // });
     }
 
     /**

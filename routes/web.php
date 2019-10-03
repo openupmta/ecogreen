@@ -12,6 +12,9 @@
 */
 
 
+Route::get('/','client\HomeController@GetIndex')->name('trang-chu');
+
+
 use Illuminate\Support\Facades\Auth;
 use App\models\shipping;
 use App\models\commitment;
@@ -28,6 +31,10 @@ Route::get('/gioi-thieu', function () {
 })->name('gioi-thieu');
 Route::get('/tu-van-suc-khoe.html','client\AdvisoryController@GetAdvisory')->name('tu-van-suc-khoe');
 Route::post('/tu-van-suc-khoe.html','client\AdvisoryController@PostAdvisory');
+Route::get('/cau-hoi-thuong-gap.html','client\AdvisoryController@GetQuestion')->name('cauhoithuonggap');
+
+
+
 Route::get('/san-pham', function () {
     return view('pages.sanpham');
 })->name('san-pham');
@@ -35,16 +42,11 @@ Route::get('/san-pham', function () {
 Route::get('/khuyen-mai','client\PromotionController@GetPromotion')->name('khuyen-mai');
 Route::post('/khuyen-mai','client\PromotionController@PostPromotion')->name('khuyen-mai');
 
-Route::get('/tu-van', function () {
-    return view('pages.tuvan-suckhoe');
-})->name('tu-van');
 
-// Route::get('/khuyen-mai', function () {
-//     return view('pages.khuyen-mai');
-// });
-Route::get('/chu-de-suc-khoe', function () {
-    return view('pages.chude-suckhoe');
-})->name('chu-de-suc-khoe');
+Route::get('/chu-de-suc-khoe.html','client\HealthController@GetHealth')->name('chu-de-suc-khoe');
+Route::get('health/{slug}.html','client\HealthController@GetTheme');
+Route::get('details/{slug_detail}.html','client\HealthController@GetDetailTheme');
+
 
 Route::get('/dang-nhap', function () {
     return view('pages.dang-nhap');
@@ -59,13 +61,13 @@ Route::get('/chi-tiet-san-pham', function () {
     $commitment=commitment::all();
     return view('pages.chitiet-sanpham',['shipping'=>$shipping,'commitment'=>$commitment]);
 })->name('chi-tiet-san-pham');
-Route::get('/chi-tiet-san-pham-1', function () {
-    return view('pages.chitiet-sanpham-1');
-});
-Route::get('/chi-tiet-san-pham-2', function () {
-    return view('pages.chitiet-sanpham-2');
-});
+//chi tiết câu hỏi
+Route::get('{slug_question}.html','client\DetailQuestionFrequentController@GetDeteil')->name('chi-tiet');
+Route::get('detail/{slug_detail}.html','client\DetailQuestionFrequentController@GetDetailQuestion');
 
+
+
+//backend
 
 Route::get('login','admins\LoginController@GetLogin')->middleware('CheckLogout');
 Route::post('login','admins\LoginController@PostLogin');
@@ -107,13 +109,43 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function ()
 
     Route::prefix('question')->group(function(){
         Route::get('','admins\QuestionController@List');
-        Route::get('delete','admins\QuestionController@Delete');
+        Route::get('delete/{id}','admins\QuestionController@Delete');
+        Route::get('del/{id}','admins\QuestionController@Del');
         Route::get('list','admins\QuestionController@ListAnswer');
         Route::get('answer/{id}','admins\QuestionController@GetAnswer');
         Route::post('answer/{id}','admins\QuestionController@PostAnswer');
-        
-        
+        Route::get('edit/{id}','admins\QuestionController@GetEdit');
+        Route::post('edit/{id}','admins\QuestionController@PostEdit');
+            //chủ đề 
+        Route::prefix('frequent')->group(function(){
+            Route::get('','admins\FrequentController@GetList');
+            Route::get('delete/{id}','admins\FrequentController@Delete');
+            Route::get('edit/{id}','admins\FrequentController@GetEdit');
+            Route::post('edit/{id}','admins\FrequentController@PostEdit');
+            Route::get('add','admins\FrequentController@GetAdd');
+            Route::post('add','admins\FrequentController@PostAdd');
+        });
+       
     });
+    Route::prefix('headlth')->group(function(){
+        Route::get('','admins\HeadlthController@List');
+        Route::get('add','admins\HeadlthController@GetAdd');
+        Route::post('add','admins\HeadlthController@PostAdd');
+        Route::get('edit/{id}','admins\HeadlthController@GetEdit');
+        Route::post('edit/{id}','admins\HeadlthController@PostEdit');
+        Route::get('delete/{id}','admins\HeadlthController@GetDelete');
+    });
+    Route::prefix('headlths')->group(function(){
+        Route::get('','admins\HeadlthController@GetList');
+        Route::get('edit/{id}','admins\HeadlthController@GetEditHealth');
+        Route::post('edit/{id}','admins\HeadlthController@PostEditHealth');
+        Route::get('delete/{id}','admins\HeadlthController@Delete');
+        Route::get('add','admins\HeadlthController@GetAddHealth');
+        Route::post('add','admins\HeadlthController@PostAddHealth');
+        
+  
+    });
+   
 
     Route::prefix('commitment')->group(function(){
         Route::get('','admins\CommitmentController@List')->name('danhsachcommitment');

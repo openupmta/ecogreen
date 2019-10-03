@@ -22,6 +22,7 @@ Trả lời câu hỏi
                     Câu hỏi
             </h1> --}}
             <ol class="breadcrumb">
+
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li class="active">Trả lời câu hỏi</li>
             </ol>
@@ -29,96 +30,115 @@ Trả lời câu hỏi
         <section class="content">
             <div class="row">
                 <div class="col-md-12 km-right">
-                    </b>
-                    <form method="POST">
-                        @csrf
-                        {{-- <div class="form-group">
-                                <label>Câu hỏi :</label>
-                                <input type="text" class="form-control"  name="name"
-                                       value="{{ $advisory->question }}">
-                               
-                            </div> --}}
 
-                            <p><br>
-                                <label>Câu hỏi :</label>
-                                <textarea class="form-control"  name="" style="width: 100%;
-                                            height: 200px;
-                                            background: #fff;
-                                            margin-bottom: 10px;
-                                            border: 1px solid #ccc;">{{ $advisory->question }}</textarea></p>
-                        {{-- <input type="text" name="name"> --}}
+
+
+                    @if(session('thongbao1'))
+                    <script>
+                        alert('{{session('
+                            thongbao1 ')}}');
+
+                    </script>
+                    @endif
+
+
+
+
+                    <form method="POST" enctype="multipart/form-data">
+                        @csrf
+
+
+                        <p><br>
+                            <label>Câu hỏi :</label>
+                            {{ $advisory->question }}
+
+
+                        </p>
+                        <div>
+                            @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                @foreach($errors->all() as $err)
+                                {{$err}}<br>
+                                @endforeach
+
+                            </div>
+
+                            @endif
+                        </div>
+                        <p> <label>Chủ đề câu hỏi :</label>
+
+                            <select class="form-control" name="parent" id="">
+                                <option value="0">----ROOT----</option>
+                                @foreach ($catequestions as $item)
+                                <option value="{{ $item->id }}">
+                                    {{ $item->title }}
+                                </option>
+                                @endforeach
+
+                            </select>
+                        </p>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">Hình ảnh </label>
+                            <input type="file" id="image" name="image" onchange="showIMG()">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" style="margin-left: 10px">Ảnh hiển thị : </label>
+                            <div id="viewImg">
+                                <img src="" width="100$">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="" style="margin-left: 10px">Tiêu đề câu hỏi :</label>
+                            <input type="text" class="form-control" name="title">
+                        </div>
+
+
+
                         <label>Câu trả lời :</label>
                         <p><br>
-                        <input type="hidden" name="id" value="{{ $advisory->id }}" >
-                        <textarea class="form-control" name="answer" style="width: 100%;
+                            <input type="hidden" name="id" value="{{ $advisory->id }}">
+                            <textarea class="form-control" name="answer" style="width: 100%;
                                     height: 300px;
                                     background: #fff;
                                     margin-bottom: 10px;
                                     border: 1px solid #ccc;"></textarea></p>
                         <button style="align:right" type="submit" class="btn-danger btn">Trả lời</button>
-                       
+
                     </form>
                 </div>
                 <!-- /.col -->
             </div>
             <!-- /.row -->`
         </section>
-        {{-- <script>
-            {
-                {
-                    -- function thaotac(id) {
-                        --
-                    }
-                } {
-                    {
-                        --document.getElementById("button" + id).style.display = 'block';
-                        --
-                    }
-                } {
-                    {
-                        --document.getElementById("bt" + id).style.display = 'none';
-                        --
-                    }
-                } {
-                    {
-                        --
-                    }--
-                }
-            }
-
-            function update(id) {
-                var input = document.querySelector('#name' + id);
-                var edit = document.querySelector('#edit' + id);
-                var active = document.querySelector('#active' + id);
-
-
-                input.removeAttribute('readonly');
-                input.classList.remove('input');
-                input.classList.add('form-control');
-                edit.classList.add('hide');
-                active.classList.remove('hide');
-            }
-
-            function huyupdate(id) {
-                var r = confirm("WARNING! You have unsaved changes that may be lost!");
-                if (r == true) {
-                    var input = document.querySelector('#name' + id);
-                    var edit = document.querySelector('#edit' + id);
-                    var active = document.querySelector('#active' + id);
-
-
-                    input.classList.add('input');
-                    $('.input').prop('readonly', true);
-                    input.classList.remove('form-control');
-                    edit.classList.remove('hide');
-                    active.classList.add('hide');
-
-                } else {
+        <script>
+            function showIMG() {
+                var fileInput = document.getElementById('image');
+                var filePath = fileInput.value; //lấy giá trị input theo id
+                var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i; //các tập tin cho phép
+                //Kiểm tra định dạng
+                if (!allowedExtensions.exec(filePath)) {
+                    alert('Bạn chỉ có thể dùng ảnh dưới định dạng .jpeg/.jpg/.png/.gif extension.');
+                    fileInput.value = '';
                     return false;
+                } else {
+                    //Image preview
+                    if (fileInput.files && fileInput.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            document.getElementById('viewImg').innerHTML =
+                                '<img style="width:600px; height: 250px;" src="' + e.target.result + '"/>';
+                        };
+                        reader.readAsDataURL(fileInput.files[0]);
+                    }
                 }
             }
 
-        </script> --}}
+        </script>
     </div>
 </div>
 

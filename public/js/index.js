@@ -142,4 +142,6 @@ $(document).ready(function(){
 	$(".codongs-tt-title").click(function(){
 		$(".codongs-tt").toggle(400);
 	});
+	
 });
+

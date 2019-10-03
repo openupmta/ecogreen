@@ -19,13 +19,12 @@ class Health extends Migration
             $table->string('name');
             $table->string('slug');
             $table->tinyInteger('status')->default(1);
-
             $table->timestamps();
         });
 //
         Schema::create('health', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');
             $table->string('slug');
             $table->string('image');
             $table->text('summary');
@@ -36,7 +35,6 @@ class Health extends Migration
                 ->on('cate_health')
                 ->onDelete('cascade');
             $table->tinyInteger('status')->default(1);
-
             $table->timestamps();
 
         });

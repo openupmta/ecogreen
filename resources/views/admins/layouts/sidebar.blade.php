@@ -8,9 +8,9 @@
             </div>
             <div class="pull-left info">
                 <p>
-                        @if (Auth::check())
-                        {{ Auth::user()->name }}
-                       @endif
+                    @if (Auth::check())
+                    {{ Auth::user()->name }}
+                    @endif
 
                 </p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
@@ -22,60 +22,82 @@
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                            class="fa fa-search"></i>
+                    </button>
+                </span>
             </div>
         </form>
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="@yield('form') treeview">
+            {{-- <li class="@yield('form') treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
                     <span>Form</span>
                     <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{url('admin/form/create')}}"><i class="fa fa-circle-o"></i> Thêm</a></li>
                     <li><a href="{{url('admin/form/index')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
 
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="@yield('khuyenmai') treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
                     <span>Khuyến mại</span>
                     <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="admin/promotion"><i class="fa fa-circle-o"></i> Khuyến mại</a></li>
                     <li><a href="admin/expert"><i class="fa fa-circle-o"></i> Chuyên gia </a></li>
-                    <li><a href="admin/catepromotion"><i class="fa fa-circle-o"></i> Đăng kí thành viên </a></li>
+                    {{-- <li><a href="admin/catepromotion"><i class="fa fa-circle-o"></i> Đăng kí thành viên </a></li> --}}
 
                 </ul>
             </li>
 
 
             <li class="@yield('tuvan') treeview">
-                    <a href="#">
-                        <i class="fa fa-pie-chart"></i>
-                        <span>Tư vấn sức khỏe</span>
-                        <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="admin/question"><i class="fa fa-circle-o"></i>Danh sách câu hỏi</a></li>
-                    </ul>
-                </li>
-                <li class="@yield('gioithieu') treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Tư vấn sức khỏe</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/question/frequent"><i class="fa fa-circle-o"></i>Chủ đề câu hỏi</a></li>
+                    <li><a href="admin/question"><i class="fa fa-circle-o"></i>Danh sách câu hỏi</a></li>
+
+
+
+                </ul>
+            </li>
+
+            <li class="@yield('suckhoe') treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Chủ đề sức khỏe</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/headlth"><i class="fa fa-circle-o"></i>Chủ đề sức khoẻ</a></li>
+                    <li><a href="admin/headlths"><i class="fa fa-circle-o"></i>Danh sách chủ đề</a></li>
+                </ul>
+            </li>
+
+
+
+            <li class="@yield('gioithieu') treeview">
                     <a href="#">
                         <i class="fa fa-pie-chart"></i>
                         <span>Quản ly giới thiệu</span>
@@ -298,7 +320,6 @@
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

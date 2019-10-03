@@ -46,10 +46,13 @@ Danh sách câu hỏi
                             <table id="example1" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-1">Họ tên</th>
-                                        <th class="col-md-1">Email</th>
-                                        <th class="col-md-9">Câu hỏi</th>
-                                        <th class="col-md-1">Hành động</th>
+                                        <th>Họ tên</th>
+                                        <th>Email</th>
+                                        <th>Câu hỏi</th>
+                                        <th>Trả lời</th>
+                                        <th>Tiêu đề</th>
+                                        <th>Ảnh</th>
+                                        <th>Hành động</th>
 
                                     </tr>
                                 </thead>
@@ -60,11 +63,14 @@ Danh sách câu hỏi
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->question}}</td>
+                                    <td>{{$item->answer}}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td><img width="100px" src="images/{{ $item->image }}"></td>
                                     
                                     <td>
                                         <a class="btn btn-info" href="{{ url('admin/question/answer/'.$item->id) }}">Trả lời</a>
                                         <a class="btn btn-danger" href="{{ url('admin/question/delete/'.$item->id) }}"
-                                            onclick="return confirm('Hành động sẽ xóa banner này! bạn có muốn tiếp tục?')">Xóa</a>
+                                            onclick="return confirm('Hành động sẽ xóa câu hỏi này! bạn có muốn tiếp tục?')">Xóa</a>
                                     </td>
                                     </tr>
                                     @endforeach

@@ -46,24 +46,30 @@ Danh sách câu hỏi
                             <table id="example1" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-1">Họ tên</th>
-                                        <th class="col-md-1">Email</th>
-                                        <th class="col-md-9">Câu hỏi</th>
-                                        <th class="col-md-1">Hành động</th>
+                                            <th>Họ tên</th>
+                                            <th>Câu hỏi</th>
+                                            <th>Trả lời</th>
+                                            <th>Tiêu đề</th>
+                                            <th>Ảnh</th>
+                                            <th>Hành động</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($advisory as $item)
                                     <tr>
-                                    
                                     <td>{{$item->name}}</td>
-                                    <td>{{$item->email}}</td>
                                     <td>{{$item->question}}</td>
-                                    
+                                    <td>{{$item->answer}}</td>
+                                   
+                                    <td>{{$item->title}}</td>
+                                    <td><img width="100px" src="images/{{ $item->image }}"></td>
                                     <td>
-                                        <a class="btn btn-danger" href="{{ url('admin/advisory'.$item->id) }}"
-                                            onclick="return confirm('Hành động sẽ xóa banner này! bạn có muốn tiếp tục?')">Trả lời</a>
+                                        
+                                        <a class="btn btn-info" href="{{ url('admin/question/edit/'.$item->id) }}">Sửa</a>
+                                        <a class="btn btn-danger"
+                                        href="admin/question/del/{{ $item->id }}"
+                                        onclick="return confirm('Hành động sẽ xóa chủ đề câu hỏi này! bạn có muốn tiếp tục?')">Xóa</a>
                                         
                                     </td>
                                     </tr>

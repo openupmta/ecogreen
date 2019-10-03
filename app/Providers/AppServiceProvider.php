@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use App\models\catehealth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength('191');
+       // Schema::defaultStringLength('191');
+       if(! $this->app->runningInConsole()) {
+        view()->share('catehealth', catehealth::all());
+
+
+         }
     }
 }
